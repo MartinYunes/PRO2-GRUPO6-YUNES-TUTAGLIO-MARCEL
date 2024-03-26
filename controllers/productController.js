@@ -2,7 +2,7 @@ const autos = require("../db/index");
 
 
 let productController = {
-    product:function(req, res, next) {
+    productos:function(req, res, next) {
     let id = req.params.id
     let foto = autos.productos[id-1].foto
     let titulo = autos.productos[id-1].nombre

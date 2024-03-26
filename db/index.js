@@ -1,13 +1,14 @@
 let datos = {
-    usuario:{
+    usuario:[{
     id: 1,
-    email: "hola@gmail.com",
-    usuario: "hola",
-    contraseña: "hola",
-    fecha_nacimiento: 22/02/2024,
-    documento: 12345678,
-    foto: "/images/users/nacho.png",
+    email: "marcelogallardo@gmail.com",
+    usuario: "muñeco912",
+    contraseña: "912",
+    fecha_nacimiento: 22/02/1979,
+    documento: 24532467,
+    foto: "/images/users/gallardo.webp",
     },
+],
 
 
 
@@ -55,6 +56,11 @@ let datos = {
                     nombre: "nacho",
                     comentario: "Excelente elección",
                     imagen_perfil: "/images/users/ponzio.jpeg"
+                },
+                {
+                    nombre: "Colidio",
+                    comentario: "Una belleza",
+                    imagen_perfil: "/images/users/borja.png"
                 }
             ]
         },
@@ -244,5 +250,5 @@ let datos = {
         }
     ]
 }
-    
+
 module.exports = datos;
