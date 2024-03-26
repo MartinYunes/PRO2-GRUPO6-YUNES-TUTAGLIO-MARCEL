@@ -4,8 +4,6 @@ var router = express.Router();
 let profileController = require('../controllers/profileController')
 
 
-///profile
-router.get('/:id', profileController.profile);
 
 ///profile/profile-edit
 router.get('/profile-edit',profileController.profileEdit);
@@ -16,7 +14,8 @@ router.get('/profile-edit',profileController.profileEdit);
 ///profile/login
   router.get('/login',profileController.login );
 
-
+///profile/"un id del usuario"
+router.get('/:id', profileController.profile);
 
 
 
