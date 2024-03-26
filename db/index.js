@@ -4,7 +4,7 @@ let datos = {
     email: "marcelogallardo@gmail.com",
     usuario: "muñeco912",
     contraseña: "912",
-    fecha_nacimiento: 22/02/1979,
+    fecha_nacimiento: 22/12/1999,
     documento: 24532467,
     foto: "/images/users/gallardo.webp",
     },
