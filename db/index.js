@@ -8,6 +8,33 @@ let datos = {
     documento: 24532467,
     foto: "/images/users/gallardo.webp",
     },
+    {
+        id: 2,
+        email: "borja@gmail.com",
+        usuario: "borja912",
+        contraseña: "912",
+        fecha_nacimiento: 22/12/1999,
+        documento: 24532467,
+        foto: "/images/users/borja.png",
+        },
+    {
+            id: 3,
+            email: "enzo@gmail.com",
+            usuario: "enzo912",
+            contraseña: "912",
+            fecha_nacimiento: 22/12/1999,
+            documento: 24532467,
+            foto: "/images/users/enzodiaz.png",
+    },
+            {
+                id: 4,
+                email: "nacho@gmail.com",
+                usuario: "nacho912",
+                contraseña: "912",
+                fecha_nacimiento: 22/12/1999,
+                documento: 24532467,
+                foto: "/images/users/nacho.png",
+                },
 ],
 
 
@@ -23,11 +50,12 @@ let datos = {
                 nombre: "Enzo",
                 comentario: "Muy bueno",
                 imagen_perfil: "/images/users/enzodiaz.png"
+                
             },
             comentario_2 = {
                 nombre: "borja",
                 comentario: "Muy malo",
-                imagen_perfil: "/images/users/borja.png"
+                imagen_perfil: "/images/users/borja.png",
             },
             comentario_3 = {
                 nombre: "nacho",

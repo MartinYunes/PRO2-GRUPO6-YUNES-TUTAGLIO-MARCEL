@@ -32,7 +32,7 @@
 								<img src="<%= comentarios[i].imagen_perfil %>" alt="">
 								<div class="data">
 									<p class="user">
-										<strong> <a href="profile.html"><%= comentarios[i].nombre %>: </a> </strong>
+										<strong> <a href="/profile/<%= comentarioID[i] %>"><%= comentarios[i].nombre %>: </a> </strong> <!--cambiar /profile por /profile/ tag EJS id -->
 										<%= comentarios[i].comentario %>
 									</p>
 								</div>

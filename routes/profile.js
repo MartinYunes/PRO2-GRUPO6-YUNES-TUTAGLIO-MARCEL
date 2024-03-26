@@ -5,7 +5,7 @@ let profileController = require('../controllers/profileController')
 
 
 ///profile
-router.get('/', profileController.profile);
+router.get('/:id', profileController.profile);
 
 ///profile/profile-edit
 router.get('/profile-edit',profileController.profileEdit);
