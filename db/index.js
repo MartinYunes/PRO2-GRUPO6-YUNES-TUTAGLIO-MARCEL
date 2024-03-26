@@ -16,7 +16,7 @@ let datos = {
         id: 1 ,
         nombre: "Volkswagen Golf GTI",
         descripcion: "Golf GTI 2021 30.000km",
-        foto: "ha",
+        foto: "/images/products/Golf_GTI.jpeg",
         comentarios: [
             comentario_1 = {
                 nombre: "Enzo",
@@ -39,7 +39,7 @@ let datos = {
             id: 2,
             nombre: "Porsche 911",
             descripcion: "911 Carrera S 2022 10.000km",
-            foto: "foto2",
+            foto: "/images/products/porsche911.webp",
             comentarios: [
                 {
                     nombre: "Enzo",
@@ -62,21 +62,21 @@ let datos = {
             id: 3,
             nombre: "Ford Mustang GT",
             descripcion: "Mustang GT 2023 20.000km",
-            foto: "foto3",
+            foto: "/images/products/mustagng_gt.jpeg",
             comentarios: [
                 {
                     nombre: "Enzo",
-                    comentario: "Potencia pura",
+                    comentario: "Potencia",
                     imagen_perfil: "/images/users/enzodiaz.png"
                 },
                 {
                     nombre: "borja",
-                    comentario: "Un ícono",
+                    comentario: "tremendo",
                     imagen_perfil: "/images/users/borja.png"
                 },
                 {
                     nombre: "nacho",
-                    comentario: "Sueño hecho realidad",
+                    comentario: "Un sueño",
                     imagen_perfil: "/images/users/ponzio.jpeg"
                 }
             ]
@@ -85,21 +85,21 @@ let datos = {
             id: 4,
             nombre: "Chevrolet Camaro SS",
             descripcion: "Camaro SS 2022 15.000km",
-            foto: "foto4",
+            foto: "/images/products/camaro_ss.jpeg",
             comentarios: [
                 {
                     nombre: "Enzo",
-                    comentario: "Rugido impresionante",
+                    comentario: "impresionante",
                     imagen_perfil: "/images/users/enzodiaz.png"
                 },
                 {
                     nombre: "borja",
-                    comentario: "Un clásico moderno",
+                    comentario: "Clásico",
                     imagen_perfil: "/images/users/borja.png"
                 },
                 {
                     nombre: "nacho",
-                    comentario: "Increíble máquina",
+                    comentario: "Máquina",
                     imagen_perfil: "/images/users/ponzio.jpeg"
                 }
             ]
@@ -108,21 +108,21 @@ let datos = {
             id: 5,
             nombre: "BMW M3",
             descripcion: "M3 Competition 2021 12.000km",
-            foto: "foto5",
+            foto: "/images/products/bmw.webp",
             comentarios: [
                 {
                     nombre: "Enzo",
-                    comentario: "Elegancia y potencia",
+                    comentario: "Eleganciaa",
                     imagen_perfil: "/images/users/enzodiaz.png"
                 },
                 {
                     nombre: "borja",
-                    comentario: "BMW siempre impresionante",
+                    comentario: "BMW siempre",
                     imagen_perfil: "/images/users/borja.png"
                 },
                 {
                     nombre: "nacho",
-                    comentario: "Una bestia en la carretera",
+                    comentario: "Una bestia",
                     imagen_perfil: "/images/users/ponzio.jpeg"
                 }
             ]
@@ -131,21 +131,21 @@ let datos = {
             id: 6,
             nombre: "Audi R8",
             descripcion: "R8 V10 Plus 2022 8.000km",
-            foto: "foto6",
+            foto: "/images/products/audi_r8.jpg",
             comentarios: [
                 {
                     nombre: "Enzo",
-                    comentario: "Futurista y emocionante",
+                    comentario: "Futurista",
                     imagen_perfil: "/images/users/enzodiaz.png"
                 },
                 {
                     nombre: "borja",
-                    comentario: "Un símbolo de rendimiento",
+                    comentario: "Mucho rendimiento",
                     imagen_perfil: "/images/users/borja.png"
                 },
                 {
                     nombre: "nacho",
-                    comentario: "Increíble sonido de escape",
+                    comentario: "Tremendo sonido de escape",
                     imagen_perfil: "/images/users/ponzio.jpeg"
                 }
             ]
@@ -154,21 +154,21 @@ let datos = {
             id: 7,
             nombre: "Mercedes-AMG GT",
             descripcion: "AMG GT R 2023 18.000km",
-            foto: "foto7",
+            foto: "/images/products/mercedes_gt.jpeg",
             comentarios: [
                 {
                     nombre: "Enzo",
-                    comentario: "Puro poder germano",
+                    comentario: "Puro poder",
                     imagen_perfil: "/images/users/enzodiaz.png"
                 },
                 {
                     nombre: "borja",
-                    comentario: "Mercedes siempre impresionante",
+                    comentario: "Mercedes simplemente",
                     imagen_perfil: "/images/users/borja.png"
                 },
                 {
                     nombre: "nacho",
-                    comentario: "Un rugido intimidante",
+                    comentario: "Flojo de arranque",
                     imagen_perfil: "/images/users/ponzio.jpeg"
                 }
             ]
@@ -177,7 +177,7 @@ let datos = {
             id: 8,
             nombre: "Ferrari 488 GTB",
             descripcion: "488 GTB 2022 5.000km",
-            foto: "foto8",
+            foto: "/images/products/ferrari.jpeg",
             comentarios: [
                 {
                     nombre: "Enzo",
@@ -186,12 +186,12 @@ let datos = {
                 },
                 {
                     nombre: "borja",
-                    comentario: "La pasión de Ferrari",
+                    comentario: "Lento en curvas",
                     imagen_perfil: "/images/users/borja.png"
                 },
                 {
                     nombre: "nacho",
-                    comentario: "Una obra maestra de ingeniería",
+                    comentario: "Mal diseño",
                     imagen_perfil: "/images/users/ponzio.jpeg"
                 }
             ]
@@ -200,21 +200,21 @@ let datos = {
             id: 9,
             nombre: "Lamborghini Huracán",
             descripcion: "Huracán EVO 2023 7.000km",
-            foto: "foto9",
+            foto: "/images/products/lambo.jpeg",
             comentarios: [
                 {
                     nombre: "Enzo",
-                    comentario: "Puro poder italiano",
+                    comentario: "Puro poder",
                     imagen_perfil: "/images/users/enzodiaz.png"
                 },
                 {
                     nombre: "borja",
-                    comentario: "Lamborghini es arte en movimiento",
+                    comentario: "Lamborghini es arteo",
                     imagen_perfil: "/images/users/borja.png"
                 },
                 {
                     nombre: "nacho",
-                    comentario: "Emoción pura al volante",
+                    comentario: "Emocionantee",
                     imagen_perfil: "/images/users/ponzio.jpeg"
                 }
             ]
@@ -223,24 +223,26 @@ let datos = {
             id: 10,
             nombre: "McLaren 720S",
             descripcion: "720S Spider 2022 3.000km",
-            foto: "foto10",
+            foto: "/images/products/mclaren.jpeg",
             comentarios: [
                 {
                     nombre: "Enzo",
-                    comentario: "Diseño impresionante",
+                    comentario: "Flojo de papeles",
                     imagen_perfil: "/images/users/enzodiaz.png"
                 },
                 {
                     nombre: "borja",
-                    comentario: "Innovación y rendimiento",
+                    comentario: "Rendimiento",
                     imagen_perfil: "/images/users/borja.png"
                 },
                 {
                     nombre: "nacho",
-                    comentario: "Experiencia de conducción única",
+                    comentario: "Facil de manejar",
                     imagen_perfil: "/images/users/ponzio.jpeg"
                 }
             ]
         }
     ]
 }
+    
+module.exports = datos;
