@@ -16,7 +16,7 @@ let profileController = {
         imagenes.push(autos.productos[i].foto)
         comentarios.push(autos.productos[i].comentarios)
         id.push(autos.productos[i].id)
-        comentarioID.push(autos.productos[i].comentarios.id)
+        comentarioID.push(autos.productos[i].comentarios)
       }
 //for para recorrrer todos los usuarios 
 

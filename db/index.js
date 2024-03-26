@@ -46,21 +46,23 @@ let datos = {
         descripcion: "Golf GTI 2021 30.000km",
         foto: "/images/products/Golf_GTI.jpeg",
         comentarios: [
-            comentario_1 = {
+            {
                 nombre: "Enzo",
                 comentario: "Muy bueno",
-                imagen_perfil: "/images/users/enzodiaz.png"
-                
+                imagen_perfil: "/images/users/enzodiaz.png",
+                id: 3
             },
-            comentario_2 = {
+            {
                 nombre: "borja",
                 comentario: "Muy malo",
                 imagen_perfil: "/images/users/borja.png",
+                id: 2
             },
-            comentario_3 = {
+            {
                 nombre: "nacho",
                 comentario: "Alto auto",
-                imagen_perfil: "/images/users/ponzio.jpeg"
+                imagen_perfil: "/images/users/nacho.png",
+                id: 4
             }]
         },
         
@@ -73,22 +75,26 @@ let datos = {
                 {
                     nombre: "Enzo",
                     comentario: "Me encanta este auto",
-                    imagen_perfil: "/images/users/enzodiaz.png"
+                    imagen_perfil: "/images/users/enzodiaz.png",
+                    id: 3
                 },
                 {
                     nombre: "borja",
                     comentario: "Una belleza",
-                    imagen_perfil: "/images/users/borja.png"
+                    imagen_perfil: "/images/users/borja.png",
+                    id: 2
                 },
                 {
                     nombre: "nacho",
                     comentario: "Excelente elección",
-                    imagen_perfil: "/images/users/ponzio.jpeg"
+                    imagen_perfil: "/images/users/nacho.png",
+                    id :4
                 },
                 {
                     nombre: "Colidio",
                     comentario: "Una belleza",
-                    imagen_perfil: "/images/users/borja.png"
+                    imagen_perfil: "/images/users/borja.png",
+                    id: 5
                 }
             ]
         },
@@ -101,17 +107,20 @@ let datos = {
                 {
                     nombre: "Enzo",
                     comentario: "Potencia",
-                    imagen_perfil: "/images/users/enzodiaz.png"
+                    imagen_perfil: "/images/users/enzodiaz.png",
+                    id: 3
                 },
                 {
                     nombre: "borja",
                     comentario: "tremendo",
-                    imagen_perfil: "/images/users/borja.png"
+                    imagen_perfil: "/images/users/borja.png",
+                    id: 2
                 },
                 {
                     nombre: "nacho",
                     comentario: "Un sueño",
-                    imagen_perfil: "/images/users/ponzio.jpeg"
+                    imagen_perfil: "/images/users/nacho.png",
+                    id: 4
                 }
             ]
         },
@@ -124,17 +133,20 @@ let datos = {
                 {
                     nombre: "Enzo",
                     comentario: "impresionante",
-                    imagen_perfil: "/images/users/enzodiaz.png"
+                    imagen_perfil: "/images/users/enzodiaz.png",
+                    id: 3
                 },
                 {
                     nombre: "borja",
                     comentario: "Clásico",
-                    imagen_perfil: "/images/users/borja.png"
+                    imagen_perfil: "/images/users/borja.png",
+                    id: 2
                 },
                 {
                     nombre: "nacho",
                     comentario: "Máquina",
-                    imagen_perfil: "/images/users/ponzio.jpeg"
+                    imagen_perfil: "/images/users/nacho.png",
+                    id: 4
                 }
             ]
         },
@@ -147,17 +159,20 @@ let datos = {
                 {
                     nombre: "Enzo",
                     comentario: "Eleganciaa",
-                    imagen_perfil: "/images/users/enzodiaz.png"
+                    imagen_perfil: "/images/users/enzodiaz.png",
+                    id: 3
                 },
                 {
                     nombre: "borja",
                     comentario: "BMW siempre",
-                    imagen_perfil: "/images/users/borja.png"
+                    imagen_perfil: "/images/users/borja.png",
+                    id: 2
                 },
                 {
                     nombre: "nacho",
                     comentario: "Una bestia",
-                    imagen_perfil: "/images/users/ponzio.jpeg"
+                    imagen_perfil: "/images/users/nacho.png",
+                    id: 4
                 }
             ]
         },
@@ -170,17 +185,20 @@ let datos = {
                 {
                     nombre: "Enzo",
                     comentario: "Futurista",
-                    imagen_perfil: "/images/users/enzodiaz.png"
+                    imagen_perfil: "/images/users/enzodiaz.png",
+                    id: 3
                 },
                 {
                     nombre: "borja",
                     comentario: "Mucho rendimiento",
-                    imagen_perfil: "/images/users/borja.png"
+                    imagen_perfil: "/images/users/borja.png",
+                    id: 2
                 },
                 {
                     nombre: "nacho",
                     comentario: "Tremendo sonido de escape",
-                    imagen_perfil: "/images/users/ponzio.jpeg"
+                    imagen_perfil: "/images/users/nacho.png",
+                    id: 4
                 }
             ]
         },
@@ -193,17 +211,20 @@ let datos = {
                 {
                     nombre: "Enzo",
                     comentario: "Puro poder",
-                    imagen_perfil: "/images/users/enzodiaz.png"
+                    imagen_perfil: "/images/users/enzodiaz.png",
+                    id: 3
                 },
                 {
                     nombre: "borja",
                     comentario: "Mercedes simplemente",
-                    imagen_perfil: "/images/users/borja.png"
+                    imagen_perfil: "/images/users/borja.png",
+                    id: 2
                 },
                 {
                     nombre: "nacho",
                     comentario: "Flojo de arranque",
-                    imagen_perfil: "/images/users/ponzio.jpeg"
+                    imagen_perfil: "/images/users/nacho.png",
+                    id: 4
                 }
             ]
         },
@@ -216,17 +237,20 @@ let datos = {
                 {
                     nombre: "Enzo",
                     comentario: "El sueño italiano",
-                    imagen_perfil: "/images/users/enzodiaz.png"
+                    imagen_perfil: "/images/users/enzodiaz.png",
+                    id: 3
                 },
                 {
                     nombre: "borja",
                     comentario: "Lento en curvas",
-                    imagen_perfil: "/images/users/borja.png"
+                    imagen_perfil: "/images/users/borja.png",
+                    id: 2
                 },
                 {
                     nombre: "nacho",
                     comentario: "Mal diseño",
-                    imagen_perfil: "/images/users/ponzio.jpeg"
+                    imagen_perfil: "/images/users/nacho.png",
+                    id: 4
                 }
             ]
         },
@@ -239,17 +263,20 @@ let datos = {
                 {
                     nombre: "Enzo",
                     comentario: "Puro poder",
-                    imagen_perfil: "/images/users/enzodiaz.png"
+                    imagen_perfil: "/images/users/enzodiaz.png",
+                    id: 3
                 },
                 {
                     nombre: "borja",
                     comentario: "Lamborghini es arteo",
-                    imagen_perfil: "/images/users/borja.png"
+                    imagen_perfil: "/images/users/borja.png",
+                    id: 2
                 },
                 {
                     nombre: "nacho",
                     comentario: "Emocionantee",
-                    imagen_perfil: "/images/users/ponzio.jpeg"
+                    imagen_perfil: "/images/users/nacho.png",
+                    id: 4
                 }
             ]
         },
@@ -262,17 +289,20 @@ let datos = {
                 {
                     nombre: "Enzo",
                     comentario: "Flojo de papeles",
-                    imagen_perfil: "/images/users/enzodiaz.png"
+                    imagen_perfil: "/images/users/enzodiaz.png",
+                    id: 3
                 },
                 {
                     nombre: "borja",
                     comentario: "Rendimiento",
-                    imagen_perfil: "/images/users/borja.png"
+                    imagen_perfil: "/images/users/borja.png",
+                    id: 2
                 },
                 {
                     nombre: "nacho",
                     comentario: "Facil de manejar",
-                    imagen_perfil: "/images/users/ponzio.jpeg"
+                    imagen_perfil: "/images/users/nacho.png",
+                    id: 4
                 }
             ]
         }
