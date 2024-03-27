@@ -55,7 +55,8 @@ let profileController = {
 
 
     profileEdit:  function(req, res, next) {
-        res.render('profile-edit', { title: 'Express' });
+      let usuario = autos.usuario[0].usuario
+        res.render('profile-edit', { usuario: usuario });
       },
 
 

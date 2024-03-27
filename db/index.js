@@ -11,7 +11,7 @@ let datos = {
     {
         id: 2,
         email: "borja@gmail.com",
-        usuario: "borja912",
+        usuario: "borja m.a",
         contraseña: "912",
         fecha_nacimiento: 22/12/1999,
         documento: 24532467,
@@ -20,7 +20,7 @@ let datos = {
     {
             id: 3,
             email: "enzo@gmail.com",
-            usuario: "enzo912",
+            usuario: "enzo.diazzz",
             contraseña: "912",
             fecha_nacimiento: 22/12/1999,
             documento: 24532467,
@@ -29,7 +29,7 @@ let datos = {
             {
                 id: 4,
                 email: "nacho@gmail.com",
-                usuario: "nacho912",
+                usuario: "nachoman",
                 contraseña: "912",
                 fecha_nacimiento: 22/12/1999,
                 documento: 24532467,

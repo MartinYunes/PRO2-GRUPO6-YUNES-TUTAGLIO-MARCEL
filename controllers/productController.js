@@ -22,7 +22,8 @@ let productController = {
 
 
     add:function(req, res, next) {
-        res.render('product-add', { title: 'Express' });
+        let usuario = autos.usuario[0].usuario
+        res.render('product-add', { usuario: usuario });
       },
 }
 
