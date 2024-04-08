@@ -4,27 +4,61 @@ const autos = require("../db/index");
 let profileController = {
 
     profile:function(req, res, next) { 
+      let idUsuario = req.params.id
+
       let titulo_auto = []
       let descripcion_auto = []
       let imagenes = []
       let comentarios = []
       let id = []
       let comentarioID = []
-      for (let i = 0; i < autos.productos.length; i++) {
+      if (idUsuario == 1){
+      for (let i = 0; i < 3; i++) {
         titulo_auto.push(autos.productos[i].nombre)
         descripcion_auto.push(autos.productos[i].descripcion)
         imagenes.push(autos.productos[i].foto)
         comentarios.push(autos.productos[i].comentarios)
         id.push(autos.productos[i].id)
         comentarioID.push(autos.productos[i].comentarios)
-      }
+      }} else if (idUsuario == 2){
+        for (let i = 3; i < 5; i++) {
+          titulo_auto.push(autos.productos[i].nombre)
+          descripcion_auto.push(autos.productos[i].descripcion)
+          imagenes.push(autos.productos[i].foto)
+          comentarios.push(autos.productos[i].comentarios)
+          id.push(autos.productos[i].id)
+          comentarioID.push(autos.productos[i].comentarios)
+        }} else if (idUsuario == 3){
+          for (let i = 5; i < 7; i++) {
+            titulo_auto.push(autos.productos[i].nombre)
+            descripcion_auto.push(autos.productos[i].descripcion)
+            imagenes.push(autos.productos[i].foto)
+            comentarios.push(autos.productos[i].comentarios)
+            id.push(autos.productos[i].id)
+            comentarioID.push(autos.productos[i].comentarios)
+          }} else if (idUsuario == 4){
+            for (let i = 7; i < 9; i++) {
+              titulo_auto.push(autos.productos[i].nombre)
+              descripcion_auto.push(autos.productos[i].descripcion)
+              imagenes.push(autos.productos[i].foto)
+              comentarios.push(autos.productos[i].comentarios)
+              id.push(autos.productos[i].id)
+              comentarioID.push(autos.productos[i].comentarios)
+            }}  else if (idUsuario == 5){
+              for (let i = 9; i < 10; i++) {
+                titulo_auto.push(autos.productos[i].nombre)
+                descripcion_auto.push(autos.productos[i].descripcion)
+                imagenes.push(autos.productos[i].foto)
+                comentarios.push(autos.productos[i].comentarios)
+                id.push(autos.productos[i].id)
+                comentarioID.push(autos.productos[i].comentarios)
+              }}
 //for para recorrrer todos los usuarios 
 
 
       let imagen_profile = []
       let nombre_usuario = []
       let email = []
-      let idUsuario = req.params.id
 
       for (let i = 0; i < autos.usuario.length; i++) {
 
