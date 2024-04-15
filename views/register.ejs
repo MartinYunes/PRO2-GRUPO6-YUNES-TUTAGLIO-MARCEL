@@ -18,40 +18,37 @@
 				<h2 class="products-title">Registrate</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá va el formulario de registro. <br>
-			Debe cumplir con los puntos de la consigna y ser coherente con la tabla de la base de datos <br>
-			Eliminen estás líneas y coloquen el formulario. <br>
-			Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
-			////////////////
-			
 
-						<form action="/profile/register" method="get">
+			
+				<div class="formulario">
+				<form action="/profile/register" method="get">
 					<div>
-							<input type="email" name="email" value="" placeholder="Email">
+							<input type="email" name="email" value="" placeholder="Email" class="input_disnio">
 					</div>
 					<div>
-						<input type="text" name="usuario" value="" placeholder="Usuario" >
+						<input type="text" name="usuario" value="" placeholder="Usuario" class="input_disnio">
 					</div>
 					<div>
-						<input type="password" name="contrasenia" value="" placeholder="contraseña">
+						<input type="password" name="contrasenia" value="" placeholder="Contraseña" class="input_disnio">
 					</div>
 					<div>
-						<input type="date" name="Fecha de nacimiento" value="" placeholder="Fecha de nacimiento">
+						<input type="date" name="Fecha de nacimiento" value="" placeholder="Fecha de nacimiento" class="input_disnio">
 					</div>
 					<div>
-						<input type="number" name="DNI" value="" placeholder="DNI">
+						<input type="number" name="DNI" value="" placeholder="DNI" class="input_disnio">
 					</div>
 					<div>
-						<input type="text" name="fotodeperfil" value="" placeholder="Enlace a foto de perfil">
+						<input type="text" name="fotodeperfil" value="" placeholder="Enlace a foto de perfil" class="input_disnio">
 					</div>
 
 				</form>
 					<div>
-						<a href="/profile/login">	<input type="submit" name="enviar" id="" placeholder="Enviar"> </a>
+						<a href="/profile/login">	<input type="submit" name="enviar" id="" placeholder="Enviar" class="input_disnio"> </a>
 					</div>
-
+				</div>
 				
-			</h2>
+			
+		</div>
 <!-- footer -->
 <%- include("./partials/footer") %>
 <!-- /footer -->

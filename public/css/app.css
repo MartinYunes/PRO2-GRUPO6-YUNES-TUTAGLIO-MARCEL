@@ -4,10 +4,10 @@
 
 /*====== Variables ======*/
 :root {
-  --yellow: #ea26d0;
+  --dark: #000000;
   --dark-blue: #03264C;
   --light-blue: #1259c3;
-  --gray: #666666;
+  --gray: #bebebe;
   --light-gray: #ebebeb;
   --green: #39b54a;
   --base-font-family: 'Roboto', sans-serif
@@ -29,7 +29,7 @@ body {
 body {
   font-family: var(--base-font-family);
   font-weight: 300;
-  background-color: var(--light-gray);
+  background-color: var(--dark);
 }
 
 ul,
@@ -42,7 +42,7 @@ ol {
 a {
   display: inline-block;
   text-decoration: none;
-  color: inherit;
+  color: white;
 }
 
 figure {
@@ -61,7 +61,7 @@ textarea {
 
 hr {
   border: none;
-  border-bottom: solid 1px var(--light-gray);
+
 }
 
 
@@ -137,6 +137,7 @@ hr {
   border: 0px;
   cursor: pointer;
   font-size: 1em;
+  color: white;
 }
 
 .logout:hover{
@@ -158,6 +159,7 @@ hr {
   background-size: cover;
   background-position: center center;
   width: 100%;
+  height: 100%;
 }
 
 
@@ -167,14 +169,20 @@ hr {
   margin-bottom: 30px;
 }
 
+.row{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .products-title {
-  font-size: 2.4em;
-  font-weight: 400;
+  font-size: 2.9em;
+  font-weight: 900;
   color: var(--gray);
 }
 
 .product-box {
-  background-color: #ffffff;
+  background-color: #000000;
   border-radius: 5px;
   overflow: hidden;
   transition: 300ms;
@@ -185,9 +193,7 @@ hr {
   display: block;
 }
 
-.product-box_image {
-  border-bottom: 1px solid var(--light-gray);
-}
+
 
 .product-box_data {
   padding: 15px;
@@ -298,7 +304,7 @@ hr {
 
 /*====== Product Detail ======*/
 .product-detail {
-  background-color: #ffffff;
+  background-color: #464646;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -310,7 +316,6 @@ hr {
 }
 
 .product-detail-info {
-  border-right: 1px solid var(--light-gray);
   padding: 15px;
   /* height: 100%; */
 }
@@ -324,6 +329,7 @@ hr {
   padding: 15px 15px 15px 40px;
   font-size: 1.8em;
   line-height: 1.5;
+  color: var(--gray);
 }
 
 .product-detail-price {
@@ -396,14 +402,16 @@ hr {
   background-color: rgb(248, 69, 37);
 }
 .comments {
-  padding: 30px 15px 15px 0;
+  padding: 30px 15px 15px 15px;
 }
 .comments article{
   margin-bottom: 7.5px;
   padding-bottom: 7.5px;
-  border-bottom: 1px solid #dcdcdc;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #000000;
+
 }
 .comments img{
   width: 40px;
@@ -420,6 +428,7 @@ hr {
 }
 .comments .user{
   font-size: 1.7em;
+  margin-bottom: 0px;
 }
 
 /*====== Formularios ======*/
@@ -452,9 +461,30 @@ textarea.form-input {
   padding: 15px;
 }
 
+.formulario{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.input_disnio{
+  border-radius: 30px;
+  margin-bottom: 15px;
+  height: 40px;
+  width: 200px;
+  background-color: var(--gray);
+  display: flex ;
+  justify-content: center;
+  text-align: center;
+}
+
+.input_disnio placeholder{
+  color: #1259c3;
+}
+
 /*====== Profile ======*/
 .info-usuario{
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid var(--gray);
   padding-bottom: 30px;
   font-size: 16px;
 }
@@ -466,6 +496,11 @@ textarea.form-input {
 .main-title{
   font-size: 25px;
   margin-bottom: 10px;
+  color: var(--gray);
+}
+
+.dato_usuario{
+  color: var(--gray);
 }
 
 .btn{
@@ -484,7 +519,6 @@ textarea.form-input {
   }
 
   .banner {
-    height: 320px;
   }
 
   .btn-toggle-navbar {
