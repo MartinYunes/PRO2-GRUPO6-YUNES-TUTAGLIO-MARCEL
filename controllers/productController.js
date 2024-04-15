@@ -16,7 +16,8 @@ let productController = {
         res.render('product', { titulo: titulo,
         imagen : foto,
         descripcion : descripcion,
-        comentarios : comentarios
+        comentarios : comentarios,
+        id : id
         });
       },
 
