@@ -77,7 +77,7 @@ hr {
 }
 
 .main-header_credit-link {
-  font-size: 1.5em;
+  font-size: 1.6em;
   margin-top: 20px;
   text-align: center;
 }
@@ -149,8 +149,8 @@ hr {
   display: block;
   padding: 5px 0;
   border-bottom: solid 1px var(--gray);
+  font-size: 1.2em;
 }
-
 
 
 /*====== Banner ======*/
@@ -264,7 +264,7 @@ hr {
 
 /*====== Footer ======*/
 .main-footer {
-  background-color: #ffffff;
+  background-color: var(--gray);
   padding: 20px 0;
   margin-top: 80px;
 }
@@ -279,13 +279,13 @@ hr {
 }
 
 .footer-data h2 {
-  color: var(--gray);
+  color: white;
   font-size: 2.4em;
   font-weight: 400;
 }
 
 .footer-data p {
-  color: var(--gray);
+  color: white;
   font-size: 1.5em;
   font-weight: 300;
 }
@@ -301,6 +301,11 @@ hr {
   padding: 15px 0;
 }
 
+.footer_edit{
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
 
 /*====== Product Detail ======*/
 .product-detail {
