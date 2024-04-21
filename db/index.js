@@ -102,7 +102,7 @@ let datos = {
                 {
                     nombre: "Colidio",
                     comentario: "Una belleza",
-                    imagen_perfil: "/images/users/borja.png",
+                    imagen_perfil: "/images/users/colidio.png",
                     id: 5
                 }
             ]
