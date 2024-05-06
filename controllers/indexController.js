@@ -1,5 +1,5 @@
 const autos = require("../db/index");
-
+const db = require("../database/models")
 
 let indexController = {
     index: function(req, res, next) {
@@ -16,13 +16,17 @@ let indexController = {
         id.push(autos.productos[i].id)
       }
 
-        res.render('index', { title: titulo_auto, 
-        descripcion: descripcion_auto,
-        comentarios : comentarios,
-        imagen : imagenes,
-        id : id
-        });
-      },
+       // res.render('index', { title: titulo_auto, 
+        //descripcion: descripcion_auto,
+        //comentarios : comentarios,
+       // imagen : imagenes,
+       // id : id
+      //  });
+    db.Comentario.findAll().then(function (result) {
+      
+      return res.send(result)
+    }).catch(error=>console.log(error)) 
+    },
 
     searchResults: function(req, res, next) {
       let titulo_auto = []
