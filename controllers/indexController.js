@@ -22,7 +22,7 @@ let indexController = {
        // imagen : imagenes,
        // id : id
       //  });
-    db.Comentario.findAll().then(function (result) {
+    db.Usuario.findAll().then(function (result) {
       
       return res.send(result)
     }).catch(error=>console.log(error)) 

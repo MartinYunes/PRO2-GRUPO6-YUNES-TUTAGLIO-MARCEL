@@ -1,5 +1,5 @@
 const autos = require("../db/index");
-
+const db = require("../database/models")
 
 let profileController = {
 
@@ -97,6 +97,12 @@ let profileController = {
 
     register: function(req, res, next) {
         res.render('register', { title: 'Express' });
+      },
+    
+    store: function(req, res) {
+      let form = req.body;
+      db.Usuario.create(form)
+        return res.redirect("/profile/login")      
       },
 
 
