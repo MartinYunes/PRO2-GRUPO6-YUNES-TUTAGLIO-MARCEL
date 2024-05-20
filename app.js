@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require("express-session")
+// const db = require("./database/models")
 
 var indexRouter = require('./routes/index');
 var productRouter = require('.//routes/product')
@@ -33,6 +34,20 @@ app.use(function(req, res, next) {
   }
   return next()
 });
+
+// app.use(function(req, res, next) {
+//   if (req.cookies.userID != undefined && req.session.user == undefined) {
+//     let idUsuario = req.cookies.userID
+//     db.User.findbypk(idUsuario).then((result) =>
+//     req.session.user = result,
+//     res.locals.user = result
+//     )
+//     return next()
+// }
+// else{
+//     return next()
+//   }
+// })
 
 
 app.use('/', indexRouter);
