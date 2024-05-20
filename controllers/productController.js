@@ -1,9 +1,9 @@
 const autos = require("../db/index");
+const db = require("../database/models");
 
 
 let productController = {
     productos:function(req, res, next) {
-    // let id = req.params.id
     // let foto = autos.productos[id-1].foto
     // let titulo = autos.productos[id-1].nombre
     // let descripcion = autos.productos[id-1].descripcion
@@ -20,20 +20,23 @@ let productController = {
     //     id : id
     //     });
     //   },
-
+    let comentarios = [];
+    let titulo_auto = [];
+    let descripcion_auto = [];
+    let imagenes = [];
     let id = req.params.id 
-    filtrar = 
-    db.Producto.findAll().then(function (result) {
-      for (let i = 0; i < result.length; i++) {
-        comentarios.push(autos.productos[i].comentarios)
-        titulo_auto.push(result[i].nombreProducto)
-        descripcion_auto.push(result[i].descripcion)
-        imagenes.push(result[i].imagen)
-        id.push(result[i].id)
 
-      }
+    db.Producto.findByPk(id).then(function (result) {
 
-      return res.render('index', { title: titulo_auto, 
+      titulo_auto.push(result.nombreProducto)
+      descripcion_auto.push(result.descripcion)
+      imagenes.push(result.imagen)
+
+    for (let i = 0; i < autos.productos[id-1].comentarios.length; i++) {
+      comentarios.push(autos.productos[id-1].comentarios[i])  
+    }
+
+      return res.render('product', { title: titulo_auto, 
         descripcion: descripcion_auto,
         comentarios : comentarios,
        imagen : imagenes,
