@@ -110,6 +110,12 @@ let profileController = {
     login:function(req, res, next) {
         res.render('login', { title: 'Express' });
       },
+
+      
+    logout:function(req, res) {
+        req.session.destroy();
+        return res.redirect("/");
+      },
 }
 
 

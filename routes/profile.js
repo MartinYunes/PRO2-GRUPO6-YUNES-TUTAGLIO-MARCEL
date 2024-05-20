@@ -16,6 +16,8 @@ router.get('/profile-edit',profileController.profileEdit);
 ///profile/login
   router.get('/login',profileController.login );
 
+  router.post('/partials/headerLogueado', profileController.logout);
+
 ///profile/"un id del usuario"
 router.get('/:id', profileController.profile);
 
