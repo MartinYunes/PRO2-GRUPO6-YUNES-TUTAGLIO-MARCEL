@@ -41,7 +41,11 @@ Productos.associate = function(models) {
     Productos.belongsTo(models.Usuario, {
         as : "Usuario",
         foreignKey: "idUsuario"
-    });
+    }),
+    Productos.hasMany(models.Comentario,{
+        as: "comentario",
+        foreignKey: "idProducto"
+    })
 }
 
     return Productos;
