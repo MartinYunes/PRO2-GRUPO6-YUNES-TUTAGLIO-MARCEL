@@ -26,6 +26,12 @@ let productController = {
     let imagenes = [];
     let id = req.params.id 
 
+    let filtrado = {
+      include : [{
+        association : "Usuario"
+      }]
+    }
+
     db.Producto.findByPk(id).then(function (result) {
 
       titulo_auto.push(result.nombreProducto)
