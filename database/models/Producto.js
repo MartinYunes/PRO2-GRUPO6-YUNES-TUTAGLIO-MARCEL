@@ -44,7 +44,7 @@ Productos.associate = function(models) {
     }),
     Productos.hasMany(models.Comentario,{
         as: "comentario",
-        foreignKey: "idProducto"
+        foreignKey: "id"
     })
 }
 

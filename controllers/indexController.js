@@ -30,17 +30,25 @@ let indexController = {
       let id = []
       let comentarios = []
 
-
-    db.Producto.findAll().then(function (result) {
-
-      for (let i = 0; i < result.length; i++) {
-        comentarios.push(autos.productos[i].comentarios)
-        titulo_auto.push(result[i].nombreProducto)
-        descripcion_auto.push(result[i].descripcion)
-        imagenes.push(result[i].imagen)
-        id.push(result[i].id)
-
+      let associate = {
+        include: [
+          {association: "comentario"},
+          {association: "Usuario"}
+        ] 
       }
+
+      db.Producto.findAll(associate).then(function (result) {
+        for (let i = 0; i < result.length; i++) {
+
+          titulo_auto.push(result[i].nombreProducto)
+          descripcion_auto.push(result[i].descripcion)
+          imagenes.push(result[i].imagen)
+         id.push(result[i].id)
+
+         comentarios.push(autos.productos[i].comentarios)
+
+        }
+
 
       return res.render('index', { title: titulo_auto, 
         descripcion: descripcion_auto,
@@ -59,21 +67,47 @@ let indexController = {
       let comentarios = []
       let imagenes = []
       let id = []
-      for (let i = 0; i < autos.productos.length; i++) {
-        titulo_auto.push(autos.productos[i].nombre)
-        descripcion_auto.push(autos.productos[i].descripcion)
-        comentarios.push(autos.productos[i].comentarios)
-        imagenes.push(autos.productos[i].foto)
-        id.push(autos.productos[i].id)
-      }
+      // for (let i = 0; i < autos.productos.length; i++) {
+      //   titulo_auto.push(autos.productos[i].nombre)
+      //   descripcion_auto.push(autos.productos[i].descripcion)
+      //   comentarios.push(autos.productos[i].comentarios)
+      //   imagenes.push(autos.productos[i].foto)
+      //   id.push(autos.productos[i].id)
+      // }
 
-        res.render('search-results', { title: titulo_auto, 
-        descripcion: descripcion_auto,
-        comentarios : comentarios,
-        imagen : imagenes,
-        id : id
-        });
-      },   
+      //   res.render('search-results', { title: titulo_auto, 
+      //   descripcion: descripcion_auto,
+      //   comentarios : comentarios,
+      //   imagen : imagenes,
+      //   id : id
+      //   });
+      // }, 
+      let associate = {
+        include: [
+          {association: "comentario"},
+          {association: "Usuario"}
+        ] 
+      }
+      
+      db.Producto.findAll(associate).then(function (result) {
+        for (let i = 0; i < result.length; i++) {
+  
+          titulo_auto.push(result[i].nombreProducto)
+          descripcion_auto.push(result[i].descripcion)
+          imagenes.push(result[i].imagen)
+          id.push(result[i].id)
+          comentarios.push(autos.productos[i].comentarios)
+        }
+  
+  
+        return res.render('search-results', { title: titulo_auto, 
+          descripcion: descripcion_auto,
+          comentarios : comentarios,
+         imagen : imagenes,
+         id : id
+         });
+      }).catch(error=>console.log(error)) 
+    },
 }
 
 
