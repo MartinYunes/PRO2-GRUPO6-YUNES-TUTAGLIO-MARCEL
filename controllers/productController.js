@@ -1,5 +1,6 @@
 const autos = require("../db/index");
 const db = require("../database/models");
+const {validationResult} = require("express-validator")
 
 
 let productController = {
@@ -60,9 +61,26 @@ let productController = {
 
 
     add:function(req, res, next) {
-        let usuario = autos.usuario[0].usuario
-        res.render('product-add', { usuario: usuario });
-      },
+      let errors = validationResult(req)
+      if (errors.isEmpty()) {
+        let form = req.body;
+        let producto = {
+          nombreproducto: form.nombreProducto ,
+          imagenproducto: form.imagen ,
+          descripcionproducto: form.descripcion,
+        }
+  
+        db.Producto.create(producto)
+          return res.redirect("/profile/form.idUsuario")  
+
+      
+      } else{
+        return res.render("product-add", {
+          errors: errors.mapped(),
+          old: req.body
+        })
+      }
+    }
 }
 
 module.exports = productController;
