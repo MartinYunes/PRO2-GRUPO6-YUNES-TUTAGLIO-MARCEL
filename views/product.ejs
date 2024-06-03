@@ -20,25 +20,25 @@
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<p><% usuarioAutor %></p>
+					<p class="title-usuario">Nombre del usuario: <%= usuarioAutor %></p>
 					<img src="/images/products/<%= imagen %>" alt="" class="product-detail-img">
 					<p class="product-detail-description">
 						<%= descripcion %></p>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
-						
-						<% for (let i = 0; i < comentarios.length; i++) { %>
+
+					<%for (let i = 0; i < comentarios.length; i++) {%>
 							<article>
-								<img src="<%= comentarios[i].imagen_perfil %>" alt="">
+								<img src="/images/users/<%= imagen_usuario[i] %>" alt="">
 								<div class="data">
 									<p class="user">
-										<strong> <a href="/profile/<%= comentarios[i].id %>"><%= comentarios[i].nombre %>: </a> </strong> <!--cambiar /profile por /profile/ tag EJS id -->
-										<%= comentarios[i].comentario %>
+										<strong> <a href="/profile/<%= id_usuario[i] %>"><%= comments_usuario[i] %>: </a> </strong> 
+										<%= comentarios[i] %>
 									</p>
 								</div>
 							</article>
-						<% } %>
+						<% }%>
 
 					</section>
 					<form class="form" action="" method="POST">
