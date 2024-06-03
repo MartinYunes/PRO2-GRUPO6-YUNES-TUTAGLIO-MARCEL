@@ -1,6 +1,7 @@
 const autos = require("../db/index");
 const db = require("../database/models")
 const bcrypt = require("bcryptjs")
+const {validationResult} = require("express-validator")
 
 let profileController = {
 
@@ -101,19 +102,29 @@ let profileController = {
       },
     
     store: function(req, res) {
-      let form = req.body;
-      let user = {
-        email: form.email ,
-        usuario: form.usuario ,
-        contrasenia: bcrypt.hashSync(form.contrasenia, 10),
-        fecha: form.fecha,
-        dni: form.dni,
-        fotoPerfil: form.fotoPerfil,
+      let errors = validationResult(req)
+      if (errors.isEmpty()) {
+        let form = req.body;
+        let user = {
+          email: form.email ,
+          usuario: form.usuario ,
+          contrasenia: bcrypt.hashSync(form.contrasenia, 10),
+          fecha: form.fecha,
+          dni: form.dni,
+          fotoPerfil: form.fotoPerfil,
+        }
+  
+        db.Usuario.create(user)
+          return res.redirect("/profile/login")      
+        
+      } else{
+        return res.render("register", {
+          errors: errors.mapped(),
+          old: req.body
+        })
       }
+    },
 
-      db.Usuario.create(user)
-        return res.redirect("/profile/login")      
-      },
 
 
 

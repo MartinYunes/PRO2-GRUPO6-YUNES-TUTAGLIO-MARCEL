@@ -18,7 +18,6 @@
 				<h2 class="products-title">Registrate</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-
 			
 				<div class="formulario">
 				<form action="/profile/register" method="post">
@@ -26,7 +25,10 @@
 						<input type="email" name="email" value="" placeholder="Email" class="input_disnio">
 					</div>
 					<div>
-						<input type="text" name="usuario" value="" placeholder="Usuario" class="input_disnio">
+						<input type="text" name="usuario" value="" placeholder="Usuario" class="input_disnio">	
+						<% if (locals.errors && errors.usuario) { %>
+							<p style="color:white"><%= errors.usuario.msg %></p>
+						<% } %> 					 
 					</div>
 					<div>
 						<input type="password" name="contrasenia" value="" placeholder="Contraseña" class="input_disnio">

@@ -96,6 +96,7 @@ let indexController = {
           descripcion_auto.push(result[i].descripcion)
           imagenes.push(result[i].imagen)
           id.push(result[i].id)
+
           comentarios.push(autos.productos[i].comentarios)
         }
   
