@@ -24,29 +24,36 @@ let productController = {
     let titulo_auto = [];
     let descripcion_auto = [];
     let imagenes = [];
+    let autor = [];
     let id = req.params.id 
 
     let filtrado = {
-      include : [{
-        association : "Usuario"
-      }]
+      include : [
+        {association : "Usuario"},
+        {association: "comentario"}
+    ],
+      where : [
+      {id : id}
+    ]
     }
 
-    db.Producto.findByPk(id).then(function (result) {
-
-      titulo_auto.push(result.nombreProducto)
-      descripcion_auto.push(result.descripcion)
-      imagenes.push(result.imagen)
+    db.Producto.findAll(filtrado).then(function (result) {
+      console.log(result[0].Usuario);
+      // autor.push(result.Usuario[result.idUsuario].usuario[0])
+      titulo_auto.push(result[0].nombreProducto)
+      descripcion_auto.push(result[0].descripcion)
+      imagenes.push(result[0].imagen)
 
     for (let i = 0; i < autos.productos[id-1].comentarios.length; i++) {
       comentarios.push(autos.productos[id-1].comentarios[i])  
     }
-
+    
       return res.render('product', { title: titulo_auto, 
         descripcion: descripcion_auto,
         comentarios : comentarios,
        imagen : imagenes,
-       id : id
+       id : id,
+       usuarioAutor : autor
        });
     }).catch(error=>console.log(error)) 
     },

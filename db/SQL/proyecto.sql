@@ -12,28 +12,29 @@ create table  usuarios (
         fotoPerfil			VARCHAR(250)	NOT NULL,
         createdAt 			TIMESTAMP 		DEFAULT CURRENT_TIMESTAMP ,
 		updatedAt 			TIMESTAMP 		DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        deletedAt			TIMESTAMP		DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+        deletedAt			TIMESTAMP		DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        usuarios            VARCHAR(250)    NOT NULL,
 				
 );  
 
-INSERT INTO usuarios (id, email, contrasenia, fecha, dni, fotoPerfil, createdAt, updatedAt, deletedAt) 
-VALUES (DEFAULT, "marcelogallardo@gmail.com", "912", "1999-12-22", 24532467, "gallardo.webp", DEFAULT, DEFAULT, DEFAULT);
+INSERT INTO usuarios (id, email, contrasenia, fecha, dni, fotoPerfil, createdAt, updatedAt, deletedAt, usuarios) 
+VALUES (DEFAULT, "marcelogallardo@gmail.com", "912", "1999-12-22", 24532467, "gallardo.webp", DEFAULT, DEFAULT, DEFAULT, muñeco912);
 
 
-INSERT  INTO usuarios (id,email,contrasenia,fecha,dni,fotoPerfil,createdAt,updatedAt,deletedAt) 
-VALUES (DEFAULT,"borja@gmail.com","colombia123","1988-9-30",453442251,"borja.png",DEFAULT,DEFAULT,DEFAULT);
+INSERT  INTO usuarios (id,email,contrasenia,fecha,dni,fotoPerfil,createdAt,updatedAt,deletedAt, usuarios) 
+VALUES (DEFAULT,"borja@gmail.com","colombia123","1988-9-30",453442251,"borja.png",DEFAULT,DEFAULT,DEFAULT, borja m.a);
 
 
-INSERT  INTO usuarios (id,email,contrasenia,fecha,dni,fotoPerfil,createdAt,updatedAt,deletedAt) 
-VALUES (DEFAULT,"enzo@gmail.com","rivercarpr32","2002-11-11",37653341,"enzodiaz.png",DEFAULT,DEFAULT,DEFAULT);
+INSERT  INTO usuarios (id,email,contrasenia,fecha,dni,fotoPerfil,createdAt,updatedAt,deletedAt, usuarios) 
+VALUES (DEFAULT,"enzo@gmail.com","rivercarpr32","2002-11-11",37653341,"enzodiaz.png",DEFAULT,DEFAULT,DEFAULT, enzo.diazzz);
 
 
-INSERT  INTO usuarios (id,email,contrasenia,fecha,dni,fotoPerfil,createdAt,updatedAt,deletedAt) 
-VALUES (DEFAULT,"facucolidio@gmail.com","facundo123","2001-10-11",40931125,"colidio.png",DEFAULT,DEFAULT,DEFAULT);
+INSERT  INTO usuarios (id,email,contrasenia,fecha,dni,fotoPerfil,createdAt,updatedAt,deletedAt, usuarios) 
+VALUES (DEFAULT,"facucolidio@gmail.com","facundo123","2001-10-11",40931125,"colidio.png",DEFAULT,DEFAULT,DEFAULT, nachoman);
 
 
-INSERT  INTO usuarios (id,email,contrasenia,fecha,dni,fotoPerfil,createdAt,updatedAt,deletedAt) 
-VALUES (DEFAULT,"nacho@gmail.com","nachito","1989-3-21",30824453,"nacho.png",DEFAULT,DEFAULT,DEFAULT);
+INSERT  INTO usuarios (id,email,contrasenia,fecha,dni,fotoPerfil,createdAt,updatedAt,deletedAt, usuarios) 
+VALUES (DEFAULT,"nacho@gmail.com","nachito","1989-3-21",30824453,"nacho.png",DEFAULT,DEFAULT,DEFAULT, facucolidio);
 
 
 create table productos (
@@ -46,7 +47,6 @@ create table productos (
 	createdAt 			TIMESTAMP 		DEFAULT CURRENT_TIMESTAMP ,
 	updatedAt 			TIMESTAMP 		DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	deletedAt			TIMESTAMP		DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    
     foreign key (idUsuario) references usuarios(id)
 );
 
