@@ -26,12 +26,16 @@ let productController = {
     let descripcion_auto = [];
     let imagenes = [];
     let autor = [];
+    let comments_usuario = []
+    let imagen_usuario = []
+    let id_usuario = []
     let id = req.params.id 
 
     let filtrado = {
       include : [
         {association : "Usuario"},
-        {association: "comentario"}
+        {association: "comentario",
+        include : [{association: "usuario"}]}
     ],
       where : [
       {id : id}
@@ -39,22 +43,29 @@ let productController = {
     }
 
     db.Producto.findAll(filtrado).then(function (result) {
-      console.log(result[0].Usuario);
-      // autor.push(result.Usuario[result.idUsuario].usuario[0])
+
+      autor.push(result[0].Usuario.usuario)
       titulo_auto.push(result[0].nombreProducto)
       descripcion_auto.push(result[0].descripcion)
       imagenes.push(result[0].imagen)
 
-    for (let i = 0; i < autos.productos[id-1].comentarios.length; i++) {
-      comentarios.push(autos.productos[id-1].comentarios[i])  
+    for (let i = 0; i < result[0].comentario.length; i++) {
+      comentarios.push(result[0].comentario[i].comentario)
+      comments_usuario.push(result[0].comentario[i].usuario.usuario)
+      imagen_usuario.push(result[0].comentario[i].usuario.fotoPerfil)
+      id_usuario.push(result[0].comentario[i].usuario.id)
+
     }
-    
+
       return res.render('product', { title: titulo_auto, 
         descripcion: descripcion_auto,
         comentarios : comentarios,
-       imagen : imagenes,
-       id : id,
-       usuarioAutor : autor
+        imagen : imagenes,
+        id : id,
+        usuarioAutor : autor,
+        comments_usuario : comments_usuario,
+        imagen_usuario : imagen_usuario,
+        id_usuario : id_usuario
        });
     }).catch(error=>console.log(error)) 
     },

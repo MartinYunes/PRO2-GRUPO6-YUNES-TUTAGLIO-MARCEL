@@ -181,6 +181,12 @@ hr {
   color: var(--gray);
 }
 
+.title-usuario {
+  font-size: 2.4em;
+  padding-left: 30px;
+  color: var(--gray);
+}
+
 .product-box {
   background-color: #000000;
   border-radius: 5px;
