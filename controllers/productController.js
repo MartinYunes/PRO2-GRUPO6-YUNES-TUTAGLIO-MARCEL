@@ -85,9 +85,9 @@ let productController = {
           imagenproducto: form.imagen ,
           descripcionproducto: form.descripcion,
         }
-  
+
         db.Producto.create(producto)
-          return res.redirect("/profile/1")  
+          return res.redirect("/profile/1") 
 
       
       } else{

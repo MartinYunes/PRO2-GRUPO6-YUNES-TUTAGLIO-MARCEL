@@ -8,7 +8,7 @@ let validation = [
     body("nombreProducto")
     .notEmpty().withMessage("Debes ingresar un nombre del producto").bail(),
 
-    body("descripción")
+    body("descripcion")
     .notEmpty().withMessage("Debes ingresar una descripcion").bail()
 ]
 
