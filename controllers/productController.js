@@ -59,8 +59,13 @@ let productController = {
     }).catch(error=>console.log(error)) 
     },
 
-
     add:function(req, res, next) {
+      
+      res.render('product-add', { title: 'Express' });
+    },
+
+
+    product_add:function(req, res, next) {
       let errors = validationResult(req)
       if (errors.isEmpty()) {
         let form = req.body;
@@ -71,7 +76,7 @@ let productController = {
         }
   
         db.Producto.create(producto)
-          return res.redirect("/profile/form.idUsuario")  
+          return res.redirect("/profile/1")  
 
       
       } else{

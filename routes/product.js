@@ -15,7 +15,9 @@ let validation = [
 let productController = require('../controllers/productController')
 
 
-router.get('/add', validation, productController.add);
+router.get('/add', productController.add);
+
+router.post('/add', validation, productController.product_add);
 
 router.get('/:id', productController.productos);
 

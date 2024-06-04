@@ -20,16 +20,26 @@
 			</div>
 			<!-- Show the "ultimos" products -->		
 
-				<form action="/product/add" method="get" class="formulario">
+				<form action="/product/add" method="post" class="formulario">
 
 					<div>
 						<input type="file" name="imagen" value="" placeholder="Foto del producto" class="input_disnio">
+						<% if (locals.errors && errors.imagen) { %>
+							<p style="color:white"><%= errors.imagen.msg %></p>
+						<% } %> 
 					</div>
 					<div>
 						<input type="text" name="nombreProducto" value="" placeholder="Nombre del producto" class="input_disnio">
+						<% if (locals.errors && errors.nombreProducto) { %>
+							<p style="color:white"><%= errors.nombreProducto.msg %></p>
+						<% } %> 
 					</div>
 					<div>
 						<input type="text" name="descripción" value="" placeholder="Descripción del producto" class="input_disnio">
+						<% if (locals.errors && errors.descripción) { %>
+							<p style="color:white"><%= errors.descripción.msg %></p>
+						<% } %> 
+
 					</div>
 					<div>
 						<a href="/product/add">	<input type="submit" name="enviar" id="" placeholder="Enviar" class="input_disnio"> </a>
