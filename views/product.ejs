@@ -6,10 +6,10 @@
 <!-- Include Head -->
 
 <!-- Header -->
-<% if (locals.user != null) { %>
-	<%- include('./partials/headerLogueado') %><% } else { %>
-		<%- include("./partials/header") %>
-<% } %>
+	<% if (locals.user != null) { %>
+		<%- include('./partials/headerLogueado') %><% } else { %>
+			<%- include("./partials/header") %>
+	<% } %>
 <!-- Header -->
 
 	<!-- product detail -->
@@ -23,7 +23,7 @@
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<p class="title-usuario">Nombre del usuario: <%= usuarioAutor %></p>
+					<p> <a href="/profile/<%= id %>" class="products-title"> Hecho por: <%= id %> </a> </p> 
 					<img src="/images/products/<%= imagen %>" alt="" class="product-detail-img">
 					<p class="product-detail-description">
 						<%= descripcion %></p>
