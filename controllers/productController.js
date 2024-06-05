@@ -1,5 +1,6 @@
 const autos = require("../db/index");
 const db = require("../database/models");
+const comentario = db.Comentario
 const {validationResult} = require("express-validator")
 
 
@@ -96,7 +97,39 @@ let productController = {
           old: req.body
         })
       }
-    }
+    },
+
+    saveComentario: function(req,res){   
+      if (req.session.user != undefined) {
+          
+          let autos = req.body
+          autos.usuario.id = req.session.user.id
+          autos.productos.id = req.params.id
+          if (autos.comentarios != "") {
+                  comentario.create(autos)
+                      .then((result) => {
+                          return res.redirect(`/product/detail/${autos.productos.id}`)  
+                      }).catch((err) => {
+                          console.log(err)
+                      });
+          } else {
+              let relacion = {
+                  include: [
+                       {association: "comentarios", include: [{association: "usuario"}]},
+                       { association: "usuario"}
+                  ], 
+                  order: [["created_at", "DESC"]]
+              }
+      
+               productos.findByPk(autos.productos.id, relacion)
+                  .then((result) => {
+                      return res.render('product', {productos: result})
+                  }).catch((err) => {
+                      console.log(err)
+                  }); 
+              }
+      } 
+  }
 }
 
 module.exports = productController;

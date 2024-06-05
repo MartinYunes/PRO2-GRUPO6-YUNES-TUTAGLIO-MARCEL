@@ -44,12 +44,14 @@
 						<% }%>
 
 					</section>
-					<form class="form" action="" method="POST">
-						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
-					</form>
-					<a href="/product/<%= id %>">
-						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-					</a>
+					<% if (locals.user != null) { %>
+						<form class="form" action="/product/<%= id %>" method="POST">
+							<input class="form-input" name="comentario" type="text" value="" placeholder="Agregar comentario">
+							<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+						</form>
+						<% } else { %>
+							<p class="products-title">Debe estar logueado para comentar</p>
+					<% } %>
 					<hr>
 				</div>
 			</div>
