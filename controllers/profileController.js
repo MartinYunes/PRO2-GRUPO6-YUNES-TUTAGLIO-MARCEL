@@ -1,5 +1,6 @@
 const autos = require("../db/index");
 const db = require("../database/models")
+const moment = require('moment');
 const bcrypt = require("bcryptjs")
 const {validationResult} = require("express-validator")
 
@@ -129,14 +130,57 @@ let profileController = {
 
 
     login:function(req, res, next) {
-        res.render('login', { title: 'Express' });
-      },
+      if (req.session.user != undefined) {
+        return res.redirect("/");
+    } else {
+        return res.render("login")
+    }
+},
 
+storeLogin: function (req, res) {
+  let emailInsertado = req.body.email
+  let claveInsertada = req.body.contrasenia 
+
+  let filtrado = {
+      where: [{ email: emailInsertado }]
+  }
+
+  errors = {}
+
+  db.Usuario.findOne(filtrado)
+      .then((result) => {
+          if (result != null) {
+              let claveCorrecta = bcrypt.compareSync(claveInsertada, result.contrasenia)
+              if (claveCorrecta) {
+                  req.session.user = result.dataValues
+                  if (req.body.recordarme != undefined) {
+                      res.cookie('id', result.dataValues.id, { maxAge: 1000 * 60 * 60 })
+                  }
+                  //console.log(req.session.user);
+                  let id = req.session.user.id
+                  return res.redirect(`/profile/${id}`)
+              } else {
+                  errors.mensaje = "la contraseña es incorrecta"
+                  res.locals.errors = errors
+                  return res.render('login')
+              }
+          } else {
+              errors.mensaje = "El email no existe"
+              res.locals.errors = errors
+              return res.render('login')
+          }
+
+      }).catch((err) => {
+          console.log(err);
+
+      });
+
+},
       
     logout:function(req, res) {
         req.session.destroy();
         res.clearCookie("userId")
-        return res.redirect("/");
+        return res.redirect("/"); //redirect
       },
 }
 

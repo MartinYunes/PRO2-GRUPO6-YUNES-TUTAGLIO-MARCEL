@@ -19,21 +19,16 @@
 			<!-- Show the "ultimos" products -->
 			
 			<div class="formulario">
-			<form action="/profile/login" method="get">
-
-			<div>
+				<form action="/profile/login" method="POST">
+					<% if (locals.errors) { %>
+					 <p> <%= errors.mensaje %></p>
+					<% } %>
 					<input type="email" name="email" value="" placeholder="Email" class="input_disnio">
-			</div>
-			<div>
-				<input type="password" name="contrasenia" value="" placeholder="Contraseña" class="input_disnio">
-			</div>
-			<div class="recordarme">
-				Recordame <input type="checkbox" name="recordarme" value="" placeholder="Recordame" > 
-			</div>
-			<div  classs= "boton_submit">
-				<a href="/">	<input type="submit" name="enviar" id="" placeholder="Enviar" class="input_disnio"> </a>
-			</div>
-		</form>
+					<input type="password" name="contrasenia" value="" placeholder="Contrseña" class="input_disnio" >
+					<input type="checkbox" name="recordarme" value="recordarme" class="input_disnio"> Recordarme
+					<button type="submit" class="input_disnio">Enviar</button>				
+			</form>
+
 
 		</div>
 		

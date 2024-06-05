@@ -20,6 +20,7 @@ router.get('/profile-edit',profileController.profileEdit);
 
 ///profile/login
   router.get('/login',profileController.login );
+  router.post('/login', profileController.storeLogin)
 
   router.post('/partials/headerLogueado', profileController.logout);
 
