@@ -6,7 +6,10 @@
 <!-- Include Head -->
 
 <!-- Header -->
-<%- include("./partials/header") %>
+<% if (locals.user != null) { %>
+	<%- include('./partials/headerLogueado') %><% } else { %>
+		<%- include("./partials/header") %>
+<% } %>
 <!-- Header -->
 
 	<!-- product detail -->

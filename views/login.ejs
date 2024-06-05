@@ -20,9 +20,9 @@
 			
 			<div class="formulario">
 				<form action="/profile/login" method="POST">
-					<% if (errors && errors.mensaje) { %>
-						<p class="mensajerror"><%= errors.mensaje %></p>
-					<% } %>
+					<% if (locals.errors) { %>
+						<p class="mensajerror"> <%= errors.mensaje %></p>
+					   <% } %>
 					<input type="email" name="email" value="" placeholder="Email" class="input_disnio">
 					<input type="password" name="contrasenia" value="" placeholder="Contrseña" class="input_disnio" >
 					<input type="checkbox" name="recordarme" value="recordarme" class="input_disnio"> Recordarme
