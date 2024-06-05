@@ -162,16 +162,19 @@ storeLogin: function (req, res) {
               } else {
                   errors.mensaje = "la contraseña es incorrecta"
                   res.locals.errors = errors
-                  return res.render('login')
+                  return res.render('login', {errors: errors});
               }
           } else {
               errors.mensaje = "El email no existe"
               res.locals.errors = errors
-              return res.render('login')
+              return res.render('login',{errors: errors});
           }
 
       }).catch((err) => {
           console.log(err);
+          errors.mensaje = "Hubo un error. Por favor intentar denuevo";
+          res.locals.errors = errors; 
+          return res.render('login',{errors: errors});
 
       });
 
