@@ -22,7 +22,7 @@ router.get('/profile-edit',profileController.profileEdit);
   router.get('/login',profileController.login );
   router.post('/login', profileController.storeLogin)
 
-  router.post('/partials/headerLogueado', profileController.logout);
+  router.get('/logout', profileController.logout);
 
 ///profile/"un id del usuario"
 router.get('/:id', profileController.profile);
