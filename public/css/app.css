@@ -97,7 +97,11 @@ hr {
   height: 40px;
   font-size: 1.5em;
 }
-
+.saludo{
+  color: white;
+  text-align: center;
+  margin-left: 1000px;
+}
 .search-form_button {
   position: absolute;
   right: 5px;
@@ -543,8 +547,7 @@ textarea.form-input {
     text-align: right;
   }
 
-  .banner {
-  }
+  
 
   .btn-toggle-navbar {
     display: none;

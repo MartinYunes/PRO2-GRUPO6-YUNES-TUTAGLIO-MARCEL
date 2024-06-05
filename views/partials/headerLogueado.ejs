@@ -74,6 +74,9 @@
 				</ul>
 			</nav>
 		</div>
+		<% if (locals.user != null) { %>
+			<strong class="saludo">Bienvenido <%= locals.user.usuario %> ✋ </strong> 
+		<% } %>
 	</header>
 	<!-- /Header -->
 	
