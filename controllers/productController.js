@@ -102,13 +102,13 @@ let productController = {
     saveComentario: function(req,res){   
       if (req.session.user != undefined) {
           
-          let autos = req.body
-          autos.usuario.id = req.session.user.id
-          autos.productos.id = req.params.id
-          if (autos.comentarios != "") {
-                  comentario.create(autos)
+          let data = req.body
+          data.idAutor = req.session.user.id
+          data.idProducto = req.params.id
+          if (data.comentario != "") {
+                  comentario.create(data)
                       .then((result) => {
-                          return res.redirect(`/product/detail/${autos.productos.id}`)  
+                          return res.redirect(`/product/${data.idProducto}`)  
                       }).catch((err) => {
                           console.log(err)
                       });
@@ -121,10 +121,11 @@ let productController = {
                   order: [["created_at", "DESC"]]
               }
       
-               productos.findByPk(autos.productos.id, relacion)
+               productos.findByPk(data.idProducto, relacion)
                   .then((result) => {
                       return res.render('product', {productos: result})
-                  }).catch((err) => {
+                  })
+                  .catch((err) => {
                       console.log(err)
                   }); 
               }
