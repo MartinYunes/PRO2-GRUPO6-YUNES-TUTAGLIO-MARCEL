@@ -135,7 +135,7 @@ let profileController = {
     } else {
         return res.render("login")
     }
-},
+  },
 
 storeLogin: function (req, res) {
   let emailInsertado = req.body.email
