@@ -1,6 +1,7 @@
 const autos = require("../db/index");
 const db = require("../database/models");
 const Comentario = require("../database/models/Comentario");
+const Op = db.Sequelize.Op;
 
 let indexController = {
     index: function(req, res, next) {
@@ -62,7 +63,44 @@ let indexController = {
     
 
     searchResults: function(req, res, next) {
-      let titulo_auto = []
+      let queryString = req.query.search;
+
+      let filtro = {
+          where: {
+              [Op.or]: [
+                  { nombreProducto: { [Op.like]: `%${queryString}%` } },
+                  { descripcion: { [Op.like]: `%${queryString}%` } }
+              ]
+          },
+          order: [["createdAt", "DESC"]],
+          include: [
+              { association: 'comentarios', include: [{ association: 'usuario' }] },
+              { association: 'usuario' }
+          ]
+      };
+
+      db.Producto.findAll(filtro)
+          .then(result => {
+              let dic = { productos: result };
+              if (result.length > 0) {
+                  dic.mensaje = 'Aquí están los resultados de su búsqueda';
+              } else {
+                  dic.mensaje = 'No hay resultados para su búsqueda';
+              }
+              return res.render('search-results', dic);
+          })
+          .catch(err => {
+              console.log(err);
+              res.status(500).send('Error al realizar la búsqueda');
+          });
+  }
+};
+   
+   
+   
+   
+   
+      /*  let titulo_auto = []
       let descripcion_auto = []
       let comentarios = []
       let imagenes = []
@@ -106,9 +144,8 @@ let indexController = {
          imagen : imagenes,
          id : id
          });
-      }).catch(error=>console.log(error)) 
-    },
-}
+      }).catch(error=>console.log(error)) */
+
 
 
 
