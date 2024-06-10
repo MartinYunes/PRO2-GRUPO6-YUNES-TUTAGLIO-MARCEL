@@ -135,7 +135,7 @@ let profileController = {
     } else {
         return res.render("login")
     }
-  },
+},
 
 storeLogin: function (req, res) {
   let emailInsertado = req.body.email
@@ -146,10 +146,10 @@ storeLogin: function (req, res) {
   }
 
   errors = {}
-
   db.Usuario.findOne(filtrado)
       .then((result) => {
           if (result != null) {
+
               let claveCorrecta = bcrypt.compareSync(claveInsertada, result.contrasenia)
               if (claveCorrecta) {
                   req.session.user = result.dataValues
