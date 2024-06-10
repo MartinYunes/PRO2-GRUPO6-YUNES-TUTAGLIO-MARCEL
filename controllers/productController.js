@@ -85,9 +85,10 @@ let productController = {
       if (errors.isEmpty()) {
         let form = req.body;
         let producto = {
-          nombreproducto: form.nombreProducto ,
-          imagenproducto: form.imagen ,
-          descripcionproducto: form.descripcion,
+          nombreProducto: form.nombreProducto ,
+          imagen: form.imagen ,
+          descripcion: form.descripcion,
+          idUsuario: req.session.user.id,
         }
 
         db.Producto.create(producto)
