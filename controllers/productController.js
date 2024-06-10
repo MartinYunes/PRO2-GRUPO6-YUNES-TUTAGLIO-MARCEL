@@ -134,6 +134,11 @@ let productController = {
                   }); 
               }
       } 
+  },
+
+  delete:function(req, res, next) {
+    
+    return res.send("hola")
   }
 }
 
