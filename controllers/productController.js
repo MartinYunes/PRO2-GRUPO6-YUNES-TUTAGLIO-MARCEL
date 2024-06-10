@@ -30,6 +30,7 @@ let productController = {
     let comments_usuario = []
     let imagen_usuario = []
     let id_usuario = []
+    let id_creador = []
     let id = req.params.id 
 
     let filtrado = {
@@ -49,6 +50,7 @@ let productController = {
       titulo_auto.push(result[0].nombreProducto)
       descripcion_auto.push(result[0].descripcion)
       imagenes.push(result[0].imagen)
+      id_creador.push(result[0].Usuario.id)
 
     for (let i = 0; i < result[0].comentario.length; i++) {
       comentarios.push(result[0].comentario[i].comentario)
@@ -66,7 +68,8 @@ let productController = {
         usuarioAutor : autor,
         comments_usuario : comments_usuario,
         imagen_usuario : imagen_usuario,
-        id_usuario : id_usuario
+        id_usuario : id_usuario,
+        id_creador : id_creador
        });
     }).catch(error=>console.log(error)) 
     },

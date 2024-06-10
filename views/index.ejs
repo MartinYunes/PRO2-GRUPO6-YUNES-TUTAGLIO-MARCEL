@@ -34,8 +34,10 @@
 								<h2><%= title[i] %></h2>
 								<p><%= descripcion[i] %></p>
 								<p>Comentarios: <%= comentarios[i].length %></p>
+								<a href="/profile/<%= id_usuario[i] %>"><p>Creado por: <%= usuario_creador[i] %></p></a>
 							</article>
 						</a>
+						
 					</section>
 				</div>
 			<% } %>

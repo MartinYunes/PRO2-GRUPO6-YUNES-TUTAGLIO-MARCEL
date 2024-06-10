@@ -30,12 +30,15 @@ let indexController = {
       let imagenes = []
       let id = []
       let comentarios = []
+      let usuario_creador = []
+      let id_usuario = []
 
       let associate = {
         include: [
           {association: "comentario"},
           {association: "Usuario"}
-        ] 
+        ],
+        order: [["createdAt", "DESC"]],
       }
 
       db.Producto.findAll(associate).then(function (result) {
@@ -44,18 +47,19 @@ let indexController = {
           titulo_auto.push(result[i].nombreProducto)
           descripcion_auto.push(result[i].descripcion)
           imagenes.push(result[i].imagen)
-         id.push(result[i].id)
-
-         comentarios.push(autos.productos[i].comentarios)
-
+          id.push(result[i].id)
+          comentarios.push(result[i].comentario)
+          usuario_creador.push(result[i].Usuario.usuario)
+          id_usuario.push(result[i].Usuario.id)
         }
-
 
       return res.render('index', { title: titulo_auto, 
         descripcion: descripcion_auto,
         comentarios : comentarios,
        imagen : imagenes,
-       id : id
+       id : id,
+       usuario_creador : usuario_creador,
+       id_usuario : id_usuario
        });
     }).catch(error=>console.log(error)) 
     },
