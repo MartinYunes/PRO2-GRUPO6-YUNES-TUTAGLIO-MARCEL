@@ -66,37 +66,39 @@ let indexController = {
 
     
 
-    searchResults: function(req, res, next) {
+    searchResults: function(req,res){
       let queryString = req.query.search;
 
       let filtro = {
           where: {
               [Op.or]: [
-                  { nombreProducto: { [Op.like]: `%${queryString}%` } },
-                  { descripcion: { [Op.like]: `%${queryString}%` } }
+                { nombre: { [Op.like]: `%${queryString}%` } },
+                { descripcion: { [Op.like]: `%${queryString}%` } }
               ]
-          },
-          order: [["createdAt", "DESC"]],
-          include: [
-              { association: 'comentarios', include: [{ association: 'usuario' }] },
-              { association: 'usuario' }
-          ]
-      };
+            },
+          order: [["fecha_carga", "DESC"]],
+          include: [{
+              all: true,
+              nested: true
+            }],     
+      }
 
-      db.Producto.findAll(filtro)
-          .then(result => {
-              let dic = { productos: result };
-              if (result.length > 0) {
-                  dic.mensaje = 'Aquí están los resultados de su búsqueda';
-              } else {
-                  dic.mensaje = 'No hay resultados para su búsqueda';
-              }
-              return res.render('search-results', dic);
-          })
-          .catch(err => {
-              console.log(err);
-              res.status(500).send('Error al realizar la búsqueda');
-          });
+      db.Producto.findAll(filtro) 
+      .then((result) => {
+           dic = {}
+           dic.productos = result
+           if(result != ''){
+               let mensaje = 'Aqui estan los resultados de la busqueda'
+               dic.mensaje = mensaje
+           return res.render('search-result', [dic])
+           } else {
+               let mensaje = 'No hay resultados para su busqueda'
+               dic.mensaje = mensaje
+               return res.render('search-result', [dic])
+           }
+       }).catch((err) => {
+          
+      });
   }
 };
    
