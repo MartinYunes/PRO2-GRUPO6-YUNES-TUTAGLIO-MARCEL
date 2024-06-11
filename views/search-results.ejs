@@ -22,23 +22,24 @@
 				<h2 class="products-title">Resultados de búsqueda</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<h1><%= mensaje %></h1>
-			<% if (productos && productos.length > 0) { %>
+			<h1 class="mensaje"><%= mensaje %></h1>
+			<% if (buscado != "" && productos.length > 0) { %>
 				<div class="row">
 					<% for (let i = 0; i < productos.length; i++) { %>
 						<div class="col-12 col-sm-6 col-lg-3">
 							<section class="product-box">
-								<a href="/product/detail/<%= productos[i].id %>">
+								<a href="/product/<%= productos[i].id %>">
 									<figure class="product-box_image">
-										<img src="<%= productos[i].imagen %>" alt="<%= productos[i].nombreProducto %>">
+										<img src="/images/products/<%= productos[i].imagen %>" alt="<%= productos[i].nombreProducto %>">
 									</figure>
 									<article class="product-box_data">
 										<h2><%= productos[i].nombreProducto %></h2>
-										<p><a href="/profile/<%= productos[i].usuario.id %>"> By: <%= productos[i].usuario.usuario %></a> </p>
-										<p>Descripción: <%= productos[i].descripcion %></p>
-										<p>Comentarios: <%= productos[i].comentarios.length %></p>
+										<p><%= productos[i].descripcion %></p>
+										<p>Comentarios: <%= productos[i].comentario.length %></p>
+										<a href="/profile/<%= productos[i].Usuario.id %>"><p>Creado por: <%= productos[i].Usuario.usuario %></p></a>
 									</article>
 								</a>
+								
 							</section>
 						</div>
 					<% } %>

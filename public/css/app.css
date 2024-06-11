@@ -191,6 +191,10 @@ hr {
   justify-content: center;
 }
 
+.mensaje{
+  color: white;
+}
+
 .products-title {
   font-size: 2.9em;
   font-weight: 900;

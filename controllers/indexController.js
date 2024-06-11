@@ -1,6 +1,6 @@
 const autos = require("../db/index");
 const db = require("../database/models");
-const Comentario = require("../database/models/Comentario");
+const { productos } = require("./productController");
 const Op = db.Sequelize.Op;
 
 let indexController = {
@@ -70,31 +70,32 @@ let indexController = {
       let queryString = req.query.search;
 
       let filtro = {
-          where: {
-              [Op.or]: [
-                { nombre: { [Op.like]: `%${queryString}%` } },
-                { descripcion: { [Op.like]: `%${queryString}%` } }
-              ]
-            },
-          order: [["fecha_carga", "DESC"]],
-          include: [{
-              all: true,
-              nested: true
-            }],     
+        where:[
+              { nombreProducto: { [Op.like]: `%${queryString}%` } },
+            ],
+        order: [["createdAt", "DESC"]],
+        include: [
+         {association: "comentario"},
+          {association: "Usuario"}
+        ],     
       }
 
       db.Producto.findAll(filtro) 
-      .then((result) => {
-           dic = {}
-           dic.productos = result
-           if(result != ''){
-               let mensaje = 'Aqui estan los resultados de la busqueda'
-               dic.mensaje = mensaje
-           return res.render('search-result', [dic])
+      .then(function(result){
+           if(result.length > 0 && queryString != ""){
+               let mensaje = 'Aqui estan los resultados de la busqueda '
+              return res.render('search-results', {
+                productos : result,
+                mensaje : mensaje,
+                buscado : queryString
+              })
            } else {
                let mensaje = 'No hay resultados para su busqueda'
-               dic.mensaje = mensaje
-               return res.render('search-result', [dic])
+               return res.render('search-results', {
+                mensaje : mensaje,
+                productos : result,
+                buscado : queryString
+               })
            }
        }).catch((err) => {
           
