@@ -19,7 +19,7 @@ router.get('/add', productController.add);
 
 router.post('/add', validation, productController.product_add);
 
-router.get('/delete', productController.delete);
+router.post('/delete/:id', productController.delete);
 
 router.get('/:id', productController.productos);
 router.post('/:id', productController.saveComentario);

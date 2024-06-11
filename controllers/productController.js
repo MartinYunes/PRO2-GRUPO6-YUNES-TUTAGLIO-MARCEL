@@ -31,6 +31,7 @@ let productController = {
     let imagen_usuario = []
     let id_usuario = []
     let id_creador = []
+    let id_producto = []
     let id = req.params.id 
 
     let filtrado = {
@@ -51,6 +52,7 @@ let productController = {
       descripcion_auto.push(result[0].descripcion)
       imagenes.push(result[0].imagen)
       id_creador.push(result[0].Usuario.id)
+      id_producto.push(result[0].id)
 
     for (let i = 0; i < result[0].comentario.length; i++) {
       comentarios.push(result[0].comentario[i].comentario)
@@ -69,7 +71,8 @@ let productController = {
         comments_usuario : comments_usuario,
         imagen_usuario : imagen_usuario,
         id_usuario : id_usuario,
-        id_creador : id_creador
+        id_creador : id_creador,
+        id_producto : id_producto
        });
     }).catch(error=>console.log(error)) 
     },
@@ -137,8 +140,14 @@ let productController = {
   },
 
   delete:function(req, res, next) {
-    
-    return res.send("hola")
+    let eliminar = req.params.id;
+    filtrar = {
+      where: [{id : eliminar}]
+    }
+    db.Producto.destroy(filtrar).then(function (){
+      return res.redirect("/")
+
+    }) 
   }
 }
 
