@@ -23,6 +23,9 @@
 				<form action="/profile/register" method="post">
 					<div>
 						<input type="email" name="email" value="" placeholder="Email" class="input_disnio">
+						<% if (locals.errors && errors.email) { %>
+							<p style="color:white"><%= errors.email.msg %></p>
+						<% } %> 
 					</div>
 					<div>
 						<input type="text" name="usuario" value="" placeholder="Usuario" class="input_disnio">	
@@ -32,6 +35,9 @@
 					</div>
 					<div>
 						<input type="password" name="contrasenia" value="" placeholder="Contraseña" class="input_disnio">
+						<% if (locals.errors && errors.contrasenia) { %>
+							<p style="color:white"><%= errors.contrasenia.msg %></p>
+						<% } %> 
 					</div>
 					<div>
 						<input type="date" name="fecha" value="" placeholder="Fecha de nacimiento" class="input_disnio" required>
