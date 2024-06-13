@@ -5,35 +5,9 @@ const {validationResult} = require("express-validator")
 
 
 let productController = {
+  
     productos:function(req, res, next) {
-    // let foto = autos.productos[id-1].foto
-    // let titulo = autos.productos[id-1].nombre
-    // let descripcion = autos.productos[id-1].descripcion
-    // let comentarios = []
-    // for (let i = 0; i < autos.productos[id-1].comentarios.length; i++) {
-    //   comentarios.push(autos.productos[id-1].comentarios[i])
-      
-    // }
-
-    //     res.render('product', { titulo: titulo,
-    //     imagen : foto,
-    //     descripcion : descripcion,
-    //     comentarios : comentarios,
-    //     id : id
-    //     });
-    //   },
-    let comentarios = [];
-    let titulo_auto = [];
-    let descripcion_auto = [];
-    let imagenes = [];
-    let autor = [];
-    let comments_usuario = []
-    let imagen_usuario = []
-    let id_usuario = []
-    let id_creador = []
-    let id_producto = []
     let id = req.params.id 
-
     let filtrado = {
       include : [
         {association : "Usuario"},
@@ -46,36 +20,11 @@ let productController = {
     }
 
     db.Producto.findAll(filtrado).then(function (result) {
-
-      autor.push(result[0].Usuario.usuario)
-      titulo_auto.push(result[0].nombreProducto)
-      descripcion_auto.push(result[0].descripcion)
-      imagenes.push(result[0].imagen)
-      id_creador.push(result[0].Usuario.id)
-      id_producto.push(result[0].id)
-
-    for (let i = 0; i < result[0].comentario.length; i++) {
-      comentarios.push(result[0].comentario[i].comentario)
-      comments_usuario.push(result[0].comentario[i].usuario.usuario)
-      imagen_usuario.push(result[0].comentario[i].usuario.fotoPerfil)
-      id_usuario.push(result[0].comentario[i].usuario.id)
-
-    }
-
-      return res.render('product', { title: titulo_auto, 
-        descripcion: descripcion_auto,
-        comentarios : comentarios,
-        imagen : imagenes,
-        id : id,
-        usuarioAutor : autor,
-        comments_usuario : comments_usuario,
-        imagen_usuario : imagen_usuario,
-        id_usuario : id_usuario,
-        id_creador : id_creador,
-        id_producto : id_producto
+      return res.render('product', { result: result
        });
     }).catch(error=>console.log(error)) 
     },
+
 
     add:function(req, res, next) {
       
@@ -122,62 +71,26 @@ let productController = {
           });
 
         } else {
-          let comentarios = [];
-          let titulo_auto = [];
-          let descripcion_auto = [];
-          let imagenes = [];
-          let autor = [];
-          let comments_usuario = []
-          let imagen_usuario = []
-          let id_usuario = []
-          let id_creador = []
-          let id_producto = []
           let id = req.params.id 
-
           let filtrado = {
             include : [
               {association : "Usuario"},
               {association: "comentario",
               include : [{association: "usuario"}]}
-            ],
+          ],
             where : [
-              {id : id}
-            ]
+            {id : id}
+          ]
           }
-
-      db.Producto.findAll(filtrado).then(function (result) {
-
-        autor.push(result[0].Usuario.usuario)
-        titulo_auto.push(result[0].nombreProducto)
-        descripcion_auto.push(result[0].descripcion)
-        imagenes.push(result[0].imagen)
-        id_creador.push(result[0].Usuario.id)
-        id_producto.push(result[0].id)
-
-        for (let i = 0; i < result[0].comentario.length; i++) {
-          comentarios.push(result[0].comentario[i].comentario)
-          comments_usuario.push(result[0].comentario[i].usuario.usuario)
-          imagen_usuario.push(result[0].comentario[i].usuario.fotoPerfil)
-          id_usuario.push(result[0].comentario[i].usuario.id)
-        }
-        return res.render("product", {
+      
+          db.Producto.findAll(filtrado).then(function (result) {
+            return res.render('product', { result: result,
               errors: errors.mapped(),
-              old: req.body,
-              title: titulo_auto, 
-              descripcion: descripcion_auto,
-              comentarios : comentarios,
-              imagen : imagenes,
-              id : id,
-              usuarioAutor : autor,
-              comments_usuario : comments_usuario,
-              imagen_usuario : imagen_usuario,
-              id_usuario : id_usuario,
-              id_creador : id_creador,
-              id_producto : id_producto
-            })
-        })
-    }
-  }},
+              old: req.body
+             });
+          }).catch(error=>console.log(error)) 
+          }
+    }},
 
   delete:function(req, res, next) {
     let eliminar = req.params.id;

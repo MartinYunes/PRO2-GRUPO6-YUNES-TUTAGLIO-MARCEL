@@ -71,7 +71,7 @@ let indexController = {
 
       let filtro = {
         where:[
-              { nombreProducto: { [Op.like]: `%${queryString}%` } },
+              { nombreProducto: { [Op.like]: `%${queryString}%` }, },
             ],
         order: [["createdAt", "DESC"]],
         include: [
