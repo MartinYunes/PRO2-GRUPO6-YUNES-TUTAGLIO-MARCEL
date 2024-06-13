@@ -122,13 +122,62 @@ let productController = {
           });
 
         } else {
-            return res.render("product", {
+          let comentarios = [];
+          let titulo_auto = [];
+          let descripcion_auto = [];
+          let imagenes = [];
+          let autor = [];
+          let comments_usuario = []
+          let imagen_usuario = []
+          let id_usuario = []
+          let id_creador = []
+          let id_producto = []
+          let id = req.params.id 
+
+          let filtrado = {
+            include : [
+              {association : "Usuario"},
+              {association: "comentario",
+              include : [{association: "usuario"}]}
+            ],
+            where : [
+              {id : id}
+            ]
+          }
+
+      db.Producto.findAll(filtrado).then(function (result) {
+
+        autor.push(result[0].Usuario.usuario)
+        titulo_auto.push(result[0].nombreProducto)
+        descripcion_auto.push(result[0].descripcion)
+        imagenes.push(result[0].imagen)
+        id_creador.push(result[0].Usuario.id)
+        id_producto.push(result[0].id)
+
+        for (let i = 0; i < result[0].comentario.length; i++) {
+          comentarios.push(result[0].comentario[i].comentario)
+          comments_usuario.push(result[0].comentario[i].usuario.usuario)
+          imagen_usuario.push(result[0].comentario[i].usuario.fotoPerfil)
+          id_usuario.push(result[0].comentario[i].usuario.id)
+        }
+        return res.render("product", {
               errors: errors.mapped(),
-              old: req.body
+              old: req.body,
+              title: titulo_auto, 
+              descripcion: descripcion_auto,
+              comentarios : comentarios,
+              imagen : imagenes,
+              id : id,
+              usuarioAutor : autor,
+              comments_usuario : comments_usuario,
+              imagen_usuario : imagen_usuario,
+              id_usuario : id_usuario,
+              id_creador : id_creador,
+              id_producto : id_producto
             })
-          }      
-      } 
-  },
+        })
+    }
+  }},
 
   delete:function(req, res, next) {
     let eliminar = req.params.id;
