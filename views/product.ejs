@@ -19,7 +19,8 @@
 			<p class="product-detail-description">
 				<% if (locals.user != null) { %>
 					<% if (locals.user.id == id_creador) { %>
-						<a href="/product/add">Editar</a>
+							<a href="/product/editar/<%= id_producto %>">Editar</a>
+
 						<form action="/product/delete/<%= id_producto %>" method="POST" class="form">
 							<a href="/product/delete"><button class="delete_boton" type="submit">Eliminar</button></a>
 						</form>

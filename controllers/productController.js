@@ -148,6 +148,48 @@ let productController = {
       return res.redirect("/")
 
     }) 
+  },
+
+  edit:function(req, res, next) {
+    let id = req.params.id
+    filtro = {
+      include : [
+        {association : "Usuario"}
+    ]
+    }
+    db.Producto.findByPk(id, filtro).then(function(result){
+      return res.render("product-edit", {result : result})
+    })
+  },
+
+  store_edit:function(req, res, next) {
+    let errors = validationResult(req)
+    if (errors.isEmpty()) {
+      let id = req.params.id
+      let form = req.body;
+      let producto_editado = {
+        nombreProducto: form.nombreProducto ,
+        imagen: form.imagen ,
+        descripcion: form.descripcion,
+        idUsuario: req.session.user.id,
+      }
+      filtrar = {
+        where : [{id : id}]
+      }
+      db.Producto.update(producto_editado, filtrar).then(function(){
+        return res.redirect("/") 
+      })
+    
+    } else{
+      let id = req.params.id
+      db.Producto.findByPk(id).then(function(result){
+        return res.render("product-edit", {
+          result : result,
+          errors: errors.mapped(),
+          old: req.body
+        })
+      })
+    }
   }
 }
 

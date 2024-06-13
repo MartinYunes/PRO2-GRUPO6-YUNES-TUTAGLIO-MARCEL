@@ -21,6 +21,9 @@ router.post('/add', validation, productController.product_add);
 
 router.post('/delete/:id', productController.delete);
 
+router.get('/editar/:id', productController.edit);
+router.post('/editar/:id', validation, productController.store_edit);
+
 router.get('/:id', productController.productos);
 router.post('/:id', productController.saveComentario);
 
