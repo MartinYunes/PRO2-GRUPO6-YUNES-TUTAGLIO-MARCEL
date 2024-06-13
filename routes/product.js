@@ -11,6 +11,11 @@ let validation = [
     body("descripcion")
     .notEmpty().withMessage("Debes ingresar una descripcion").bail()
 ]
+let validation_2= [
+    body("comentario")
+    .notEmpty().withMessage("El comentario no puede estar vacio").bail()
+    .isLength({min: 3}).withMessage("debe tener minimo 3 caracteres").bail()
+]
 
 let productController = require('../controllers/productController')
 
@@ -25,7 +30,7 @@ router.get('/editar/:id', productController.edit);
 router.post('/editar/:id', validation, productController.store_edit);
 
 router.get('/:id', productController.productos);
-router.post('/:id', productController.saveComentario);
+router.post('/:id', validation_2, productController.saveComentario);
 
 
 

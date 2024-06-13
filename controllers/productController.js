@@ -95,7 +95,7 @@ let productController = {
         }
 
         db.Producto.create(producto)
-          return res.redirect("/profile/1") 
+          return res.redirect(`/profile/${req.session.user.id}`) 
 
       
       } else{
@@ -106,36 +106,27 @@ let productController = {
       }
     },
 
-    saveComentario: function(req,res){   
+    saveComentario: function(req,res){ 
+      let errors = validationResult(req)  
       if (req.session.user != undefined) {
-          
+        if (errors.isEmpty()){
+          let id = req.params.id
           let data = req.body
           data.idAutor = req.session.user.id
           data.idProducto = req.params.id
-          if (data.comentario != "") {
-                  comentario.create(data)
-                      .then((result) => {
-                          return res.redirect(`/product/${data.idProducto}`)  
-                      }).catch((err) => {
-                          console.log(err)
-                      });
-          } else {
-              let relacion = {
-                  include: [
-                       {association: "comentarios", include: [{association: "usuario"}]},
-                       { association: "usuario"}
-                  ], 
-                  order: [["created_at", "DESC"]]
-              }
-      
-               productos.findByPk(data.idProducto, relacion)
-                  .then((result) => {
-                      return res.render('product', {productos: result})
-                  })
-                  .catch((err) => {
-                      console.log(err)
-                  }); 
-              }
+
+          comentario.create(data).then((result) => {
+            return res.redirect(`/product/${id}`)  
+          }).catch((err) => {
+              console.log(err)
+          });
+
+        } else {
+            return res.render("product", {
+              errors: errors.mapped(),
+              old: req.body
+            })
+          }      
       } 
   },
 
