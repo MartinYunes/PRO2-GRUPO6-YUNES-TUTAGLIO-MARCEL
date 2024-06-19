@@ -18,24 +18,33 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			
-			<form action="/profile/profile-edit" method="get" class="formulario">
+			<form action="/profile/profile-edit/<%= result.id %>" method="post" class="formulario">
 				<div>
-						<input type="email" name="email" value="" placeholder="Email" class="input_disnio">
+						<input type="email" name="email" value="<%= result.email %>" placeholder="Email" class="input_disnio">
+						<% if (locals.errors && errors.email) { %>
+							<p style="color:white"><%= errors.email.msg %></p>
+						<% } %> 
 				</div>
 				<div>
-					<input type="text" name="usuario" value="" placeholder="Usuario" class="input_disnio">
+					<input type="text" name="usuario" value="<%= result.usuario %>" placeholder="Usuario" class="input_disnio">
+					<% if (locals.errors && errors.usuario) { %>
+						<p style="color:white"><%= errors.usuario.msg %></p>
+					<% } %> 
 				</div>
 				<div>
 					<input type="password" name="contrasenia" value="" placeholder="contraseña" class="input_disnio">
+					<% if (locals.errors && errors.contrasenia) { %>
+						<p style="color:white"><%= errors.contrasenia.msg %></p>
+					<% } %> 
 				</div>
 				<div>
-					<input type="date" name="fecha" value="" placeholder="Fecha de nacimiento" class="input_disnio">
+					<input type="date" name="fecha" value="<%= result.fecha %>" placeholder="Fecha de nacimiento" class="input_disnio">
 				</div>
 				<div>
-					<input type="number" name="dni" value="" placeholder="DNI" class="input_disnio">
+					<input type="number" name="dni" value="<%= result.dni %>" placeholder="DNI" class="input_disnio">
 				</div>
 				<div>
-					<input type="text" name="fotoPerfil" value="" placeholder="Enlace a foto de perfil" class="input_disnio">
+					<input type="text" name="fotoPerfil" value="<%= result.fotoPerfil %>" placeholder="Enlace a foto de perfil" class="input_disnio">
 				</div>
 				<div>
 					<input type="submit" name="enviar" id="" placeholder="Enviar" class="input_disnio">

@@ -15,13 +15,13 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title"><%= result[0].nombreProducto %></h2> 
+			<h2 class="products-title"><%= result.nombreProducto %></h2> 
 			<p class="product-detail-description">
 				<% if (locals.user != null) { %>
-					<% if (locals.user.id == result[0].Usuario.id) { %>
-							<a href="/product/editar/<%= result[0].id %>">Editar</a>
+					<% if (locals.user.id == result.Usuario.id) { %>
+							<a href="/product/editar/<%= result.id %>">Editar</a>
 
-						<form action="/product/delete/<%= result[0].id %>" method="POST" class="form">
+						<form action="/product/delete/<%= result.id %>" method="POST" class="form">
 							<a href="/product/delete"><button class="delete_boton" type="submit">Eliminar</button></a>
 						</form>
 					<% }
@@ -31,21 +31,21 @@
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<p> <a href="/profile/<%= result[0].Usuario.id %>" class="title-usuario"> Dueño de la publicacion: <%= result[0].Usuario.usuario %> </a> </p> 
-					<img src="/images/products/<%= result[0].imagen %>" alt="" class="product-detail-img">
+					<p> <a href="/profile/<%= result.Usuario.id %>" class="title-usuario"> Dueño de la publicacion: <%= result.Usuario.usuario %> </a> </p> 
+					<img src="/images/products/<%= result.imagen %>" alt="" class="product-detail-img">
 					<p class="product-detail-description">
-						<%= result[0].descripcion %></p>
+						<%= result.descripcion %></p>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
 
-					<%for (let i = 0; i < result[0].comentario.length; i++) {%>
+					<%for (let i = 0; i < result.comentario.length; i++) {%>
 							<article>
-								<img src="/images/users/<%= result[0].comentario[i].usuario.fotoPerfil %>" alt="">
+								<img src="/images/users/<%= result.comentario[i].usuario.fotoPerfil %>" alt="">
 								<div class="data">
 									<p class="user">
-										<strong> <a href="/profile/<%= result[0].comentario[i].usuario.id %>"><%= result[0].comentario[i].usuario.usuario %>: </a> </strong> 
-										<%= result[0].comentario[i].comentario %>
+										<strong> <a href="/profile/<%= result.comentario[i].usuario.id %>"><%= result.comentario[i].usuario.usuario %>: </a> </strong> 
+										<%= result.comentario[i].comentario %>
 									</p>
 								</div>
 							</article>
@@ -53,7 +53,7 @@
 
 					</section>
 					<% if (locals.user != null) { %>
-						<form class="form" action="/product/<%= result[0].id %>" method="POST">
+						<form class="form" action="/product/<%= result.id %>" method="POST">
 							<input class="form-input" name="comentario" type="text" value="" placeholder="Agregar comentario">
 							<% if (locals.errors && errors.comentario) { %>
 								<p style="color:white"><%= errors.comentario.msg %></p>

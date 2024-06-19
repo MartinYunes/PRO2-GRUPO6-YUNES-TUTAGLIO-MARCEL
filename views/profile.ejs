@@ -27,9 +27,13 @@
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
 					<h1 class="main-title"><%= usuario.usuario %> 
-						<a href="/profile/profile-edit"> <!-- aca agregar  el nombre de usuario con una funcion -->
-							<i class="fas fa-cog"></i>
-						</a>
+						<% if (locals.user != null) { %>
+							<% if (locals.user.id == usuario.id) { %>
+								<a href="/profile/profile-edit/<%= usuario.id %>"> <!-- aca agregar  el nombre de usuario con una funcion -->
+									<i class="fas fa-cog"></i>
+								</a>
+							<% }
+						}%>
 
 					</h1>
 					<a class="btn mt-3 ml-4" href="">SEGUIR</a>

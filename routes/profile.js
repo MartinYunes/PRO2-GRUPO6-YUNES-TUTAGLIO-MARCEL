@@ -4,7 +4,7 @@ const db = require("../database/models");
 const {body} = require("express-validator")
 let validation = [
   body("usuario")
-  .notEmpty().withMessage("Debes ingresar un nombre").bail(),
+  .notEmpty().withMessage("Debes ingresar un usuario").bail(),
 
   body("email")
   .notEmpty().withMessage("Debes ingresar un mail").bail()
@@ -23,13 +23,22 @@ let validation = [
   .notEmpty().withMessage("Debes ingresar una contraseña").bail() 
   .isLength({min: 4}).withMessage("debe tener minimo 4 caracteres").bail()
 ]
+let validation_2 = [
+  body("usuario")
+  .notEmpty().withMessage("Debes ingresar un usuario").bail(),
+
+  body("email")
+  .notEmpty().withMessage("Debes ingresar un mail").bail()
+  .isEmail().withMessage("Debe ser un mail valido").bail(),
+]
 
 let profileController = require('../controllers/profileController')
 
 
 
 ///profile/profile-edit
-router.get('/profile-edit',profileController.profileEdit);
+router.get('/profile-edit/:id',profileController.profileEdit);
+router.post('/profile-edit/:id',validation_2, profileController.profileUpdate);
 
 ///profile/register
   router.get('/register', profileController.register);

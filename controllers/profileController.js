@@ -8,15 +8,15 @@ let profileController = {
 
     profile:function(req, res, next) { 
       let id = req.params.id
-
       let filtrado = {
         include : [
-          {association : "producto"},
-          {association: "comentario",}
+          {association : "producto", 
+          order: [["createdAt", "DESC"]]
+          },
+          {association: "comentario", 
+          order: [["createdAt", "DESC"]]
+          }
         ],
-          where : [
-          {id : id}
-        ]
         }
 
         db.Usuario.findByPk(id, filtrado).then((result) => {
@@ -27,11 +27,53 @@ let profileController = {
 },
 
 
-  profileEdit:  function(req, res, next) {
-      let usuario = autos.usuario[0].usuario
-        res.render('profile-edit', { usuario: usuario });
-      },
+    profileEdit:  function(req, res, next) {
+      let id = req.params.id
+      let filtrado = {
+        include : [
+          {association : "producto", },
+          {association: "comentario", }
+        ],
+        }
+      db.Usuario.findByPk(id, filtrado).then((result) => {
+        return res.render("profile-edit", {result : result});
+      })
+    },
 
+
+    profileUpdate: function(req, res, next) {
+      let errors = validationResult(req)
+      let id = req.params.id
+      filtrar = {
+        where : [{id : id}]
+        }
+      if (errors.isEmpty()){
+        let id = req.params.id
+        let nuevoUsuario = req.body
+        let usuario = {
+         email: nuevoUsuario.email ,
+         usuario: nuevoUsuario.usuario ,
+         contrasenia: bcrypt.hashSync(nuevoUsuario.contrasenia, 10),
+          fecha: nuevoUsuario.fecha,
+         dni: nuevoUsuario.dni,
+         fotoPerfil: nuevoUsuario.fotoPerfil,
+        }
+        filtrar = {
+        where : [{id : id}]
+        }
+        db.Usuario.update(usuario, filtrar).then(function(){
+          return res.redirect(`/profile/${id}`) 
+        })
+    } else{
+      db.Usuario.findByPk(id, filtrar).then(function(result){
+        return res.render("profile-edit", {
+          result : result,
+          errors: errors.mapped(),
+          old: req.body
+        })
+    })
+    }
+  },
 
 
     register: function(req, res, next) {

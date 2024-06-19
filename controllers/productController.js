@@ -14,12 +14,9 @@ let productController = {
         {association: "comentario",
         include : [{association: "usuario"}]}
     ],
-      where : [
-      {id : id}
-    ]
     }
 
-    db.Producto.findAll(filtrado).then(function (result) {
+    db.Producto.findByPk(id, filtrado).then(function (result) {
       return res.render('product', { result: result
        });
     }).catch(error=>console.log(error)) 
