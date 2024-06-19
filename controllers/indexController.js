@@ -52,7 +52,7 @@ let indexController = {
           usuario_creador.push(result[i].Usuario.usuario)
           id_usuario.push(result[i].Usuario.id)
         }
-
+      
       return res.render('index', { title: titulo_auto, 
         descripcion: descripcion_auto,
         comentarios : comentarios,
