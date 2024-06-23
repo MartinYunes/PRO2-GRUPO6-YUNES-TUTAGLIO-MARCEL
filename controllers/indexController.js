@@ -26,9 +26,12 @@ let indexController = {
       let queryString = req.query.search;
 
       let filtro = {
-        where:[
-              { nombreProducto: { [Op.like]: `%${queryString}%` }, },
+        where:{
+        [Op.or]: [
+            { nombreProducto: { [Op.like]: `%${queryString}%` } },
+            { descripcion: { [Op.like]: `%${queryString}%` } },
             ],
+        },
         order: [["createdAt", "DESC"]],
         include: [
          {association: "comentario"},
