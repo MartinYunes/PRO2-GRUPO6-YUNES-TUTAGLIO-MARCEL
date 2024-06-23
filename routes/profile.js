@@ -40,10 +40,8 @@ let validation_2 = [
       }
     })
   }),
-
-  body("constrasenia")
-  .isLength({min:4}).withMessage("debe tener minimo 4 caracteres").bail(),
 ]
+
 
 let profileController = require('../controllers/profileController')
 
