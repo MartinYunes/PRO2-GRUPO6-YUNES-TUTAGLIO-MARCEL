@@ -49,20 +49,28 @@ let profileController = {
       if (errors.isEmpty()){
         let id = req.params.id
         let nuevoUsuario = req.body
-        let usuario = {
-         email: nuevoUsuario.email ,
-         usuario: nuevoUsuario.usuario ,
-         contrasenia: bcrypt.hashSync(nuevoUsuario.contrasenia, 10),
-          fecha: nuevoUsuario.fecha,
-         dni: nuevoUsuario.dni,
-         fotoPerfil: nuevoUsuario.fotoPerfil,
+        return res.send(nuevoUsuario)
+        if (nuevoUsuario.constrasenia == " ") {
+          let usuario = {
+            email: nuevoUsuario.email ,
+            usuario: nuevoUsuario.usuario ,
+            fecha: nuevoUsuario.fecha,
+            dni: nuevoUsuario.dni,
+            fotoPerfil: nuevoUsuario.fotoPerfil,
+           }
+           
+           db.Usuario.update(usuario, filtrar).then(function(){
+             return res.redirect(`/profile/${id}`) 
+           })
+           
         }
-        filtrar = {
-        where : [{id : id}]
+        else{
+          db.Usuario.update(nuevoUsuario, filtrar).then(function(){
+            return res.redirect(`/profile/${id}`) 
+          })
         }
-        db.Usuario.update(usuario, filtrar).then(function(){
-          return res.redirect(`/profile/${id}`) 
-        })
+        
+        
     } else{
       db.Usuario.findByPk(id, filtrar).then(function(result){
         return res.render("profile-edit", {

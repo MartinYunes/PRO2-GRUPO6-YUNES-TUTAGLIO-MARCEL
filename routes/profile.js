@@ -31,14 +31,18 @@ let validation_2 = [
   .notEmpty().withMessage("Debes ingresar un mail").bail()
   .isEmail().withMessage("Debe ser un mail valido").bail()
   .custom(function(value, {req}){
+    id = req.params.id
     return db.Usuario.findOne({
       where : {email : value}
     }).then(function(user){
-      if(user){
+      if(user && user.id != id){
         throw new Error("El email ingresado ya existe")
       }
     })
   }),
+
+  body("constrasenia")
+  .isLength({min:4}).withMessage("debe tener minimo 4 caracteres").bail(),
 ]
 
 let profileController = require('../controllers/profileController')
