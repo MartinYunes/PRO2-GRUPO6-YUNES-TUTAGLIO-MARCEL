@@ -20,8 +20,6 @@ let profileController = {
 
         db.Usuario.findByPk(id, filtrado).then((result) => {
           return res.render("profile" , {usuario : result})
-
-
         })
 },
 

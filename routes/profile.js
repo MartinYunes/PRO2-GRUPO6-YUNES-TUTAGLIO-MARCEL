@@ -40,6 +40,14 @@ let validation_2 = [
       }
     })
   }),
+
+  body("contrasenia")
+  .custom((value) => {
+    if (value.length >= 1 && value.length < 4) {
+      throw new Error("debe tener minimo 4 caracteres");
+    }
+    return true;
+  })
 ]
 
 
