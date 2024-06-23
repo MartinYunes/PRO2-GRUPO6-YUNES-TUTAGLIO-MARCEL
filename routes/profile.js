@@ -29,7 +29,16 @@ let validation_2 = [
 
   body("email")
   .notEmpty().withMessage("Debes ingresar un mail").bail()
-  .isEmail().withMessage("Debe ser un mail valido").bail(),
+  .isEmail().withMessage("Debe ser un mail valido").bail()
+  .custom(function(value, {req}){
+    return db.Usuario.findOne({
+      where : {email : value}
+    }).then(function(user){
+      if(user){
+        throw new Error("El email ingresado ya existe")
+      }
+    })
+  }),
 ]
 
 let profileController = require('../controllers/profileController')

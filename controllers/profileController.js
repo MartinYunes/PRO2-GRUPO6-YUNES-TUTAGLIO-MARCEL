@@ -1,4 +1,3 @@
-const autos = require("../db/index");
 const db = require("../database/models")
 const moment = require('moment');
 const bcrypt = require("bcryptjs")
@@ -134,7 +133,6 @@ storeLogin: function (req, res) {
                   if (req.body.recordarme != undefined) {
                       res.cookie('id', result.dataValues.id, { maxAge: 1000 * 60 * 60 })
                   }
-                  //console.log(req.session.user);
                   let id = req.session.user.id
                   return res.redirect(`/profile/${id}`)
               } else {
@@ -161,7 +159,7 @@ storeLogin: function (req, res) {
     logout:function(req, res) {
         req.session.destroy();
         res.clearCookie("userId")
-        return res.redirect("/"); //redirect
+        return res.redirect("/"); 
       },
 }
 

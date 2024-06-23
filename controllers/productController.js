@@ -1,4 +1,3 @@
-const autos = require("../db/index");
 const db = require("../database/models");
 const comentario = db.Comentario
 const {validationResult} = require("express-validator")
