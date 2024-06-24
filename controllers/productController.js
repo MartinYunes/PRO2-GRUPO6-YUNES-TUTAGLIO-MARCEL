@@ -87,13 +87,17 @@ let productController = {
 
   delete:function(req, res, next) {
     let eliminar = req.params.id;
+    filtrocomment = {
+      where: [{idProducto : eliminar}]
+    }
     filtrar = {
       where: [{id : eliminar}]
     }
-    db.Producto.destroy(filtrar).then(function (){
-      return res.redirect("/")
-
-    }) 
+    db.Comentario.destroy(filtrocomment).then(() => {
+      return db.Producto.destroy(filtrar);})
+      .then(() => {
+        return res.redirect("/")
+      })
   },
 
   edit:function(req, res, next) {
