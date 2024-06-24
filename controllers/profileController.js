@@ -55,7 +55,7 @@ let profileController = {
         email: nuevoUsuario.email,
         usuario: nuevoUsuario.usuario,
         fecha: nuevoUsuario.fecha,
-        dni: nuevoUsuario.dni,
+        dni: nuevoUsuario.dni || null,
         fotoPerfil: nuevoUsuario.fotoPerfil,
       };
     

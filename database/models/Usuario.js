@@ -19,9 +19,11 @@ module.exports = function (sequelize, dataTypes) {
         },
         dni: {
             type: dataTypes.INTEGER,
+            allowNull: true
         },
         fotoPerfil: {
             type: dataTypes.STRING,
+            allowNull: true
         },
         createdAt: {
             type: dataTypes.DATE
