@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,13 +9,14 @@
 	<script src="https://kit.fontawesome.com/ff52f39fad.js" crossorigin="anonymous"></script>
 
 	<title> Mercado Liebre Argentina</title>
-			<!-- Font Awesome Stylesheet -->
+	<!-- Font Awesome Stylesheet -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 	<!-- Bootstrap Grid Stylesheet -->
 	<link rel="stylesheet" href="/css/bootstrap-grid.min.css">
 	<!-- Own Stylesheet -->
 	<link rel="stylesheet" href="/css/app.css">
 </head>
+
 <body>
 	<!-- Header -->
 	<header class="main-header">
@@ -25,14 +27,15 @@
 						<img src="/images/logoo.jpg">
 					</a>
 				</div>
-	
+
 				<div class="col-7 col-md-6">
 					<form action="/search-results" method="GET" class="search-form">
-						<input type="text" name="search" placeholder="Buscar productos, marcas y más" class="search-form_input">
+						<input type="text" name="search" placeholder="Buscar productos, marcas y más"
+							class="search-form_input">
 						<button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
 					</form>
 				</div>
-	
+
 				<div class="col-12 col-md-4">
 					<a class="main-header_credit-link">
 						<i class="fas fa-hand-holding-usd"></i>
@@ -40,29 +43,31 @@
 					</a>
 				</div>
 			</div>
-	
+
 			<button class="btn-toggle-navbar">
 				<i class="fas fa-bars"></i>
 			</button>
-	
+
 			<nav class="main-navbar">
 				<ul class="left-navbar">
-					<li><a href="/" class="todos_productos">Todos los productos</a>  <i class="fa-regular fa-rectangle-list"></i></li>
+					<li><a href="/" class="todos_productos">Todos los productos</a> <i
+							class="fa-regular fa-rectangle-list"></i></li>
 					<li><a href="/product/add">Cargar productos</a> <i class="fa-solid fa-upload"></i></li>
 				</ul>
-	
+
 				<ul class="right-navbar">
 					<li><a href="/profile/<%= locals.user.id %>">
-						<%= locals.user.usuario %>  <i class="fas fa-user"></i> <!-- aca agregar  el nombre de usuario con una funcion -->
+							<%= locals.user.usuario %> <i class="fas fa-user"></i>
+								<!-- aca agregar  el nombre de usuario con una funcion -->
 						</a>
 					</li>
 					<li>
-						
-							<a href="/profile/logout">
-								<button class="logout" type="submit">
+
+						<a href="/profile/logout">
+							<button class="logout" type="submit">
 								Cerrar sesión <i class="fas fa-sign-in-alt"></i>
-								</button> </a>
-						
+							</button> </a>
+
 					</li>
 					<!-- Solo deslogueado <li>
 						<a href="register.html">Creá tu cuenta <i class="far fa-address-card"></i>
@@ -74,11 +79,12 @@
 				</ul>
 			</nav>
 		</div>
-		<% if (locals.user != null) { %>
-			<strong class="saludo">Bienvenido <%= locals.user.usuario %> ✋ </strong> 
-		<% } %>
+		<% if (locals.user !=null) { %>
+			<strong class="saludo">Bienvenido <%= locals.user.usuario %> ✋ </strong>
+			<% } %>
 	</header>
 	<!-- /Header -->
-	
-</body>	
+
+</body>
+
 </html>

@@ -2,73 +2,85 @@
 <html lang="es">
 <!-- Include Head -->
 <%- include("./partials/head") %>
-<!-- Include Head -->
+	<!-- Include Head -->
 
-<!-- Header -->
-<%- include("./partials/headerLogueado") %>
-<!-- Header -->
+	<!-- Header -->
+	<%- include("./partials/headerLogueado") %>
+		<!-- Header -->
 
-	<!-- /Header -->
+		<!-- /Header -->
 
-	<!-- Novedades -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Editar mi perfil</h2>
-			</div>
-			<!-- Show the "ultimos" products -->
-			
-			<form action="/profile/profile-edit/<%= result.id %>" method="post" class="formulario">
-				<div>
-						<input type="email" name="email" value="<%= result.email %>" placeholder="Email" class="input_disnio">
+		<!-- Novedades -->
+		<div class="container products-wrapper">
+			<div class="row">
+				<div class="col-12">
+					<h2 class="products-title">Editar mi perfil</h2>
+				</div>
+				<!-- Show the "ultimos" products -->
+
+				<form action="/profile/profile-edit/<%= result.id %>" method="post" class="formulario">
+					<div>
+						<input type="email" name="email" value="<%= result.email %>" placeholder="Email"
+							class="input_disnio">
 						<% if (locals.errors && errors.email) { %>
-							<p style="color:white"><%= errors.email.msg %></p>
-						<% } %> 
-				</div>
-				<div>
-					<input type="text" name="usuario" value="<%= result.usuario %>" placeholder="Usuario" class="input_disnio">
-					<% if (locals.errors && errors.usuario) { %>
-						<p style="color:white"><%= errors.usuario.msg %></p>
-					<% } %> 
-				</div>
-				<div>
-					<input type="password" name="contrasenia" value="" placeholder="contraseña" class="input_disnio">
-					<% if (locals.errors && errors.contrasenia) { %>
-						<p style="color:white"><%= errors.contrasenia.msg %></p>
-					<% } %> 
-				</div>
-				<div>
-					<input type="date" name="fecha" value="<%= result.fecha %>" placeholder="Fecha de nacimiento" class="input_disnio">
-				</div>
-				<div>
-					<input type="number" name="dni" value="<%= result.dni %>" placeholder="DNI" class="input_disnio">
-				</div>
-				<div>
-					<input type="text" name="fotoPerfil" value="<%= result.fotoPerfil %>" placeholder="Enlace a foto de perfil" class="input_disnio">
-				</div>
-				<div>
-					<input type="submit" name="enviar" id="" placeholder="Enviar" class="input_disnio">
-				</div>
-			</form>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		</h2>
+							<p style="color:white">
+								<%= errors.email.msg %>
+							</p>
+							<% } %>
+					</div>
+					<div>
+						<input type="text" name="usuario" value="<%= result.usuario %>" placeholder="Usuario"
+							class="input_disnio">
+						<% if (locals.errors && errors.usuario) { %>
+							<p style="color:white">
+								<%= errors.usuario.msg %>
+							</p>
+							<% } %>
+					</div>
+					<div>
+						<input type="password" name="contrasenia" value="" placeholder="contraseña"
+							class="input_disnio">
+						<% if (locals.errors && errors.contrasenia) { %>
+							<p style="color:white">
+								<%= errors.contrasenia.msg %>
+							</p>
+							<% } %>
+					</div>
+					<div>
+						<input type="date" name="fecha" value="<%= result.fecha %>" placeholder="Fecha de nacimiento"
+							class="input_disnio">
+					</div>
+					<div>
+						<input type="number" name="dni" value="<%= result.dni %>" placeholder="DNI"
+							class="input_disnio">
+					</div>
+					<div>
+						<input type="text" name="fotoPerfil" value="<%= result.fotoPerfil %>"
+							placeholder="Enlace a foto de perfil" class="input_disnio">
+					</div>
+					<div>
+						<input type="submit" name="enviar" id="" placeholder="Enviar" class="input_disnio">
+					</div>
+				</form>
 
 
-<!-- footer -->
-<%- include("./partials/footer") %>
-<!-- /footer -->
-</body>
+
+
+
+
+
+
+
+
+
+
+
+				</h2>
+
+
+				<!-- footer -->
+				<%- include("./partials/footer") %>
+					<!-- /footer -->
+					</body>
 
 </html>

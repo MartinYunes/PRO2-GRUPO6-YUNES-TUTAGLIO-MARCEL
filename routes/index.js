@@ -4,9 +4,9 @@ var router = express.Router();
 let indexController = require('../controllers/indexController')
 
 /* GET home page. */
-router.get('/', indexController.index );
+router.get('/', indexController.index);
 
-router.get('/search-results',indexController.searchResults );
+router.get('/search-results', indexController.searchResults);
 
 
 
