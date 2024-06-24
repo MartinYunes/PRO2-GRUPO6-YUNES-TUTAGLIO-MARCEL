@@ -4,57 +4,67 @@
 
 <!-- Include Head -->
 <%- include("./partials/head") %>
-<!-- Include Head -->
+	<!-- Include Head -->
 
-<!-- Header -->
-<% if (locals.user != null) { %>
-	<%- include('./partials/headerLogueado') %><% } else { %>
-		<%- include("./partials/header") %>
-<% } %>
-<!-- Header -->
+	<!-- Header -->
+	<% if (locals.user !=null) { %>
+		<%- include('./partials/headerLogueado') %>
+			<% } else { %>
+				<%- include("./partials/header") %>
+					<% } %>
+						<!-- Header -->
 
-	<!-- /Header -->
+						<!-- /Header -->
 
-	<!-- Novedades -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Agregar productos</h2>
-			</div>
-			<!-- Show the "ultimos" products -->		
+						<!-- Novedades -->
+						<div class="container products-wrapper">
+							<div class="row">
+								<div class="col-12">
+									<h2 class="products-title">Agregar productos</h2>
+								</div>
+								<!-- Show the "ultimos" products -->
 
-				<form action="/product/add" method="post" class="formulario">
+								<form action="/product/add" method="post" class="formulario">
 
-					<div>
-						<input type="text" name="imagen" value="" placeholder="Foto del producto" class="input_disnio">
-						<% if (locals.errors && errors.imagen) { %>
-							<p style="color:white"><%= errors.imagen.msg %></p>
-						<% } %> 
-					</div>
-					<div>
-						<input type="text" name="nombreProducto" value="" placeholder="Nombre del producto" class="input_disnio">
-						<% if (locals.errors && errors.nombreProducto) { %>
-							<p style="color:white"><%= errors.nombreProducto.msg %></p>
-						<% } %> 
-					</div>
-					<div>
-						<input type="text" name="descripcion" value="" placeholder="Descripción del producto" class="input_disnio">
-						<% if (locals.errors && errors.descripcion) { %>
-							<p style="color:white"><%= errors.descripcion.msg %></p>
-						<% } %> 
+									<div>
+										<input type="text" name="imagen" value="" placeholder="Foto del producto"
+											class="input_disnio">
+										<% if (locals.errors && errors.imagen) { %>
+											<p style="color:white">
+												<%= errors.imagen.msg %>
+											</p>
+											<% } %>
+									</div>
+									<div>
+										<input type="text" name="nombreProducto" value=""
+											placeholder="Nombre del producto" class="input_disnio">
+										<% if (locals.errors && errors.nombreProducto) { %>
+											<p style="color:white">
+												<%= errors.nombreProducto.msg %>
+											</p>
+											<% } %>
+									</div>
+									<div>
+										<input type="text" name="descripcion" value=""
+											placeholder="Descripción del producto" class="input_disnio">
+										<% if (locals.errors && errors.descripcion) { %>
+											<p style="color:white">
+												<%= errors.descripcion.msg %>
+											</p>
+											<% } %>
 
-					</div>
-					<div>
-						<button type="submit" class="input_disnio">Agregar</button>
-					</div>
-				</form>
-		</h2>
+									</div>
+									<div>
+										<button type="submit" class="input_disnio">Agregar</button>
+									</div>
+								</form>
+								</h2>
 
 
-	<!-- footer -->
-	<%- include("./partials/footer") %>
-	<!-- /footer -->
+								<!-- footer -->
+								<%- include("./partials/footer") %>
+									<!-- /footer -->
 
-</body>
+									</body>
 
 </html>
