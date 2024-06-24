@@ -49,24 +49,21 @@ let profileController = {
     if (errors.isEmpty()) {
       let id = req.params.id
       let nuevoUsuario = req.body
-      if (nuevoUsuario.contrasenia == "") {
-        delete nuevoUsuario.contrasenia
-        db.Usuario.update(nuevoUsuario, filtrar).then(function () {
-          return res.redirect(`/profile/${id}`)
-        })
-      } else {
-        let usuario = {
-          email: nuevoUsuario.email,
-          usuario: nuevoUsuario.usuario,
-          contrasenia: bcrypt.hashSync(nuevoUsuario.contrasenia, 10),
-          fecha: nuevoUsuario.fecha,
-          dni: nuevoUsuario.dni,
-          fotoPerfil: nuevoUsuario.fotoPerfil,
-        }
-        db.Usuario.update(usuario, filtrar).then(function () {
-          return res.redirect(`/profile/${id}`)
-        })
-      }
+
+      let usuario = {
+        email: nuevoUsuario.email,
+        usuario: nuevoUsuario.usuario,
+        fecha: nuevoUsuario.fecha,
+        dni: nuevoUsuario.dni,
+        fotoPerfil: nuevoUsuario.fotoPerfil,
+      };
+    
+      if (nuevoUsuario.contrasenia !== "") {
+        usuario.contrasenia = bcrypt.hashSync(nuevoUsuario.contrasenia, 10);
+      } 
+      db.Usuario.update(usuario, filtrar).then(function () {
+        return res.redirect(`/profile/${id}`)
+      })
 
     } else {
       db.Usuario.findByPk(id, filtrar).then(function (result) {
@@ -93,8 +90,8 @@ let profileController = {
         usuario: form.usuario,
         contrasenia: bcrypt.hashSync(form.contrasenia, 10),
         fecha: form.fecha,
-        dni: form.dni,
-        fotoPerfil: form.fotoPerfil,
+        dni: form.dni || null,
+        fotoPerfil: form.fotoPerfil || null,
       }
 
       db.Usuario.create(user)
