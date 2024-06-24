@@ -9,15 +9,17 @@ let profileController = {
       let id = req.params.id
       let filtrado = {
         include : [
-          {association : "producto", 
-          order: [["createdAt", "DESC"]]
+          {
+          association : "producto", 
+          order: [["createdAt", "DESC"]],
+          include : [{association: "comentario"}]
           },
-          {association: "comentario", 
+          {
+          association: "comentario", 
           order: [["createdAt", "DESC"]]
           }
         ],
         }
-
         db.Usuario.findByPk(id, filtrado).then((result) => {
           return res.render("profile" , {usuario : result})
         })

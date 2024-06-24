@@ -460,6 +460,11 @@ hr {
 .comments .user{
   font-size: 1.7em;
   margin-bottom: 0px;
+  color: white;
+}
+
+.comment_user{
+  color: #000000;
 }
 
 /*====== Formularios ======*/
