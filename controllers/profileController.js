@@ -11,7 +11,8 @@ let profileController = {
       include: [
         {
           association: "producto",
-          order: [["createdAt", "DESC"]]
+          include:[{association: "comentario"}],
+          order: [["createdAt", "DESC"]],
         },
         {
           association: "comentario",
@@ -61,6 +62,7 @@ let profileController = {
       if (nuevoUsuario.contrasenia !== "") {
         usuario.contrasenia = bcrypt.hashSync(nuevoUsuario.contrasenia, 10);
       } 
+      
       db.Usuario.update(usuario, filtrar).then(function () {
         return res.redirect(`/profile/${id}`)
       })
