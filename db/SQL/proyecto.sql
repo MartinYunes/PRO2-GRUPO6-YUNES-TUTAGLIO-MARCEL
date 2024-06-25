@@ -184,8 +184,6 @@ UPDATE usuarios
 SET usuario = "facucolidio"
 WHERE id = 5;
 
-DELETE FROM productos WHERE id = 11;
-
 UPDATE usuarios
 SET contrasenia = "$2a$10$az7m3DAyVkxRmXIBcMSY2euVyChzxigstZJmFlxMRXtTmofIRq15m"
 WHERE id = 1;
