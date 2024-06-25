@@ -8,33 +8,32 @@ create table  usuarios (
         email 				VARCHAR(250)	NOT NULL,
         contrasenia			VARCHAR(250)	NOT NULL,
         fecha				DATE			NOT NULL,
-        dni 				INT 			NULL,
-        fotoPerfil			VARCHAR(250)	NULL,
+        dni 				INT 			NOT NULL,
+        fotoPerfil			VARCHAR(250)	NOT NULL,
         createdAt 			TIMESTAMP 		DEFAULT CURRENT_TIMESTAMP ,
 		updatedAt 			TIMESTAMP 		DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        deletedAt			TIMESTAMP		DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        usuarios            VARCHAR(250)    NOT NULL,
+        deletedAt			TIMESTAMP		DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 				
 );  
 
-INSERT INTO usuarios (id, email, contrasenia, fecha, dni, fotoPerfil, createdAt, updatedAt, deletedAt, usuarios) 
-VALUES (DEFAULT, "marcelogallardo@gmail.com", "912", "1999-12-22", 24532467, "gallardo.webp", DEFAULT, DEFAULT, DEFAULT, muñeco912);
+INSERT INTO usuarios (id, email, contrasenia, fecha, dni, fotoPerfil, createdAt, updatedAt, deletedAt) 
+VALUES (DEFAULT, "marcelogallardo@gmail.com", "912", "1999-12-22", 24532467, "gallardo.webp", DEFAULT, DEFAULT, DEFAULT);
 
 
-INSERT  INTO usuarios (id,email,contrasenia,fecha,dni,fotoPerfil,createdAt,updatedAt,deletedAt, usuarios) 
-VALUES (DEFAULT,"borja@gmail.com","colombia123","1988-9-30",453442251,"borja.png",DEFAULT,DEFAULT,DEFAULT, borja m.a);
+INSERT  INTO usuarios (id,email,contrasenia,fecha,dni,fotoPerfil,createdAt,updatedAt,deletedAt) 
+VALUES (DEFAULT,"borja@gmail.com","colombia123","1988-9-30",453442251,"borja.png",DEFAULT,DEFAULT,DEFAULT);
 
 
-INSERT  INTO usuarios (id,email,contrasenia,fecha,dni,fotoPerfil,createdAt,updatedAt,deletedAt, usuarios) 
-VALUES (DEFAULT,"enzo@gmail.com","rivercarpr32","2002-11-11",37653341,"enzodiaz.png",DEFAULT,DEFAULT,DEFAULT, enzo.diazzz);
+INSERT  INTO usuarios (id,email,contrasenia,fecha,dni,fotoPerfil,createdAt,updatedAt,deletedAt) 
+VALUES (DEFAULT,"enzo@gmail.com","rivercarpr32","2002-11-11",37653341,"enzodiaz.png",DEFAULT,DEFAULT,DEFAULT);
 
 
-INSERT  INTO usuarios (id,email,contrasenia,fecha,dni,fotoPerfil,createdAt,updatedAt,deletedAt, usuarios) 
-VALUES (DEFAULT,"facucolidio@gmail.com","facundo123","2001-10-11",40931125,"colidio.png",DEFAULT,DEFAULT,DEFAULT, nachoman);
+INSERT  INTO usuarios (id,email,contrasenia,fecha,dni,fotoPerfil,createdAt,updatedAt,deletedAt) 
+VALUES (DEFAULT,"facucolidio@gmail.com","facundo123","2001-10-11",40931125,"colidio.png",DEFAULT,DEFAULT,DEFAULT);
 
 
-INSERT  INTO usuarios (id,email,contrasenia,fecha,dni,fotoPerfil,createdAt,updatedAt,deletedAt, usuarios) 
-VALUES (DEFAULT,"nacho@gmail.com","nachito","1989-3-21",30824453,"nacho.png",DEFAULT,DEFAULT,DEFAULT, facucolidio);
+INSERT  INTO usuarios (id,email,contrasenia,fecha,dni,fotoPerfil,createdAt,updatedAt,deletedAt) 
+VALUES (DEFAULT,"nacho@gmail.com","nachito","1989-3-21",30824453,"nacho.png",DEFAULT,DEFAULT,DEFAULT);
 
 
 create table productos (
@@ -47,6 +46,7 @@ create table productos (
 	createdAt 			TIMESTAMP 		DEFAULT CURRENT_TIMESTAMP ,
 	updatedAt 			TIMESTAMP 		DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	deletedAt			TIMESTAMP		DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    
     foreign key (idUsuario) references usuarios(id)
 );
 
@@ -156,26 +156,56 @@ INSERT INTO comentarios (id,idProducto,idAutor	,comentario,createdAt ,updatedAt,
 
 INSERT INTO comentarios (id,idProducto,idAutor	,comentario,createdAt ,updatedAt,deletedAt)VALUES (DEFAULT,10,4,"Facil de manejar",DEFAULT,DEFAULT,DEFAULT);
 
+use integrador ;
+ALTER TABLE usuarios
+ADD usuario VARCHAR(250)	NOT NULL;
+
+UPDATE usuarios
+SET usuario = "muñeco912"
+WHERE id = 1;
 
 
+UPDATE usuarios
+SET usuario = "borja m.a"
+WHERE id = 2;
 
 
+UPDATE usuarios
+SET usuario = "enzo.diazzz"
+WHERE id = 3;
 
 
+UPDATE usuarios
+SET usuario = "nachoman"
+WHERE id = 4;
 
 
+UPDATE usuarios
+SET usuario = "facucolidio"
+WHERE id = 5;
 
+DELETE FROM productos WHERE id = 11;
 
+UPDATE usuarios
+SET contrasenia = "$2a$10$az7m3DAyVkxRmXIBcMSY2euVyChzxigstZJmFlxMRXtTmofIRq15m"
+WHERE id = 1;
 
+UPDATE usuarios
+SET contrasenia = "$2a$10$D01bENEwZ2MwgRBaJzLAOOLClsJ8JBHn6JKkX.syD207Kk.rhJqGG"
+WHERE id = 2;
 
+UPDATE usuarios
+SET contrasenia = "$2a$10$dkJ5qP2T8aaC49Xv9oeSV.WeWk6TJTzQMhnjVyiURJhCA/SK9T/KK"
+WHERE id = 3;
 
+UPDATE usuarios
+SET contrasenia = "$2a$10$h2LgWoVc9T74st5QYpztTOiZJDTl/Kw3oDmOdwj1ECcWPvSeQ1ffC"
+WHERE id = 5;
 
+UPDATE usuarios
+SET contrasenia = "$2a$10$64W3WlCzGjrzIRzRmKC80OCcg806LjgBuDNccY94T747133EI/cNq"
+WHERE id = 4;
 
-
-  
- 
- 
- 
- 
- 
- 
+ALTER TABLE usuarios
+MODIFY fotoPerfil VARCHAR(250) NULL,
+MODIFY dni INT NULL;	
